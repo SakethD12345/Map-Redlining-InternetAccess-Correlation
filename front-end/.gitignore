@@ -25,3 +25,4 @@ yarn-error.log*
 
 #TODO: add private folder for API key!
 src/private
+node_modules

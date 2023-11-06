@@ -2,3 +2,4 @@ node_modules/
 src/private
 back-end/target
 front-end/node_modules
+.DS_Store
