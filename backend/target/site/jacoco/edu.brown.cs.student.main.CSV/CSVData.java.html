@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CSVData.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">s0</a> &gt; <a href="index.source.html" class="el_package">edu.brown.cs.student.main.CSV</a> &gt; <span class="el_source">CSVData.java</span></div><h1>CSVData.java</h1><pre class="source lang-java linenums">package edu.brown.cs.student.main.CSV;
+
+import edu.brown.cs.student.main.Exceptions.FactoryFailureException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.List;
+
+/**
+ * The `CSVData` class represents a utility for managing and parsing CSV data within a web
+ * application. It allows setting and retrieving the file path to a CSV file and provides a method
+ * for parsing the contents of the CSV file into a list of lists of strings.
+ */
+public class CSVData {
+
+  private String filepath;
+
+  /**
+   * Constructs a new `CSVData` instance with an initial file path.
+   *
+   * @param filepath The initial file path to a CSV file.
+   */
+<span class="fc" id="L22">  public CSVData(String filepath) {</span>
+<span class="fc" id="L23">    this.filepath = filepath;</span>
+<span class="fc" id="L24">  }</span>
+
+  /**
+   * Sets the file path to a CSV file.
+   *
+   * @param filepath The file path to set.
+   */
+  public void setFilePath(String filepath) {
+<span class="fc" id="L32">    this.filepath = filepath;</span>
+<span class="fc" id="L33">  }</span>
+
+  /**
+   * Retrieves the current file path to the CSV file.
+   *
+   * @return The current file path.
+   */
+  public String getFilePath() {
+<span class="fc" id="L41">    return this.filepath;</span>
+  }
+
+  /**
+   * Parses the CSV file located at the specified file path and returns its contents as a list of
+   * lists of strings.
+   *
+   * @param filepath The file path of the CSV file to parse.
+   * @return A list of lists of strings representing the parsed CSV data.
+   * @throws IOException If there are any issues during the parsing process, such as file I/O
+   *     errors.
+   */
+  public List&lt;List&lt;String&gt;&gt; parseCSV(String filepath) throws IOException {
+<span class="fc" id="L54">    try (FileReader fileReader = new FileReader(filepath)) {</span>
+      // Create a Parser instance with the appropriate CreatorFromRow implementation
+<span class="fc" id="L56">      Parser&lt;List&lt;String&gt;&gt; parser = new Parser&lt;&gt;(fileReader, new CSVRowCreator());</span>
+
+      // Parse the CSV file using the Parser class
+<span class="fc" id="L59">      return parser.parse();</span>
+    }
+  }
+
+  private static class CSVRowCreator implements CreatorFromRow&lt;List&lt;String&gt;&gt; {
+    @Override
+    public List&lt;String&gt; create(List&lt;String&gt; row) throws FactoryFailureException {
+<span class="fc" id="L66">      return row;</span>
+    }
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

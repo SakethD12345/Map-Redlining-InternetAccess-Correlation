@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Creator.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">s0</a> &gt; <a href="index.source.html" class="el_package">edu.brown.cs.student.main.CSV</a> &gt; <span class="el_source">Creator.java</span></div><h1>Creator.java</h1><pre class="source lang-java linenums">package edu.brown.cs.student.main.CSV;
+
+import edu.brown.cs.student.main.Exceptions.FactoryFailureException;
+import java.util.List;
+
+/**
+ * The `Creator` class implements the `CreatorFromRow` interface, which is responsible for creating
+ * objects of a generic type `T` from a list of strings. In this implementation, the generic type
+ * `T` is specifically set to `List&lt;String&gt;`, indicating that it creates lists of strings from rows
+ * of data. This class is designed to be a simple identity creator, where it returns the input row
+ * as-is without any transformation. It can be used when data rows need to be directly converted
+ * into lists of strings.
+ *
+ * @param &lt;T&gt; The type of objects to be created from rows (typically `List&lt;String&gt;`).
+ */
+public class Creator&lt;T&gt; implements CreatorFromRow&lt;List&lt;String&gt;&gt; {
+
+  /** Constructs a new instance of the `Creator` class. */
+<span class="fc" id="L19">  public Creator() {}</span>
+
+  /**
+   * Creates an object of type `List&lt;String&gt;` from a given row of strings.
+   *
+   * @param row The row of strings to create an object from.
+   * @return An object of type `List&lt;String&gt;` representing the input row.
+   * @throws FactoryFailureException If there are any issues during the creation process.
+   */
+  @Override
+  public List&lt;String&gt; create(List&lt;String&gt; row) throws FactoryFailureException {
+<span class="fc" id="L30">    return row;</span>
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

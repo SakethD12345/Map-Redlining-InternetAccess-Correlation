@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>DatasourceException.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">s0</a> &gt; <a href="index.source.html" class="el_package">edu.brown.cs.student.main.Exceptions</a> &gt; <span class="el_source">DatasourceException.java</span></div><h1>DatasourceException.java</h1><pre class="source lang-java linenums">package edu.brown.cs.student.main.Exceptions;
+
+/**
+ * The `DatasourceException` class is a custom exception that extends the standard Java `Exception`
+ * class. It is designed to represent exceptions specific to data source operations within a
+ * software application. This exception may be used to indicate errors or unexpected conditions that
+ * occur while accessing or interacting with data sources, providing a more specialized and
+ * informative way to handle data-related issues.
+ */
+public class DatasourceException extends Exception {
+
+  private final Throwable cause;
+
+  /**
+   * Constructs a new `DatasourceException` with the specified error message.
+   *
+   * @param message The error message that describes the exception.
+   */
+  public DatasourceException(String message) {
+<span class="nc" id="L20">    super(message);</span>
+<span class="nc" id="L21">    this.cause = null;</span>
+<span class="nc" id="L22">  }</span>
+
+  /**
+   * Constructs a new `DatasourceException` with the specified error message and a reference to the
+   * underlying cause of the exception.
+   *
+   * @param message The error message that describes the exception.
+   * @param cause The underlying cause of the exception.
+   */
+  public DatasourceException(String message, Throwable cause) {
+<span class="nc" id="L32">    super(message);</span>
+<span class="nc" id="L33">    this.cause = cause;</span>
+<span class="nc" id="L34">  }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>LoadHandler.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">s0</a> &gt; <a href="index.source.html" class="el_package">edu.brown.cs.student.main.Handlers</a> &gt; <span class="el_source">LoadHandler.java</span></div><h1>LoadHandler.java</h1><pre class="source lang-java linenums">package edu.brown.cs.student.main.Handlers;
+
+import com.squareup.moshi.JsonAdapter;
+import com.squareup.moshi.Moshi;
+import com.squareup.moshi.Types;
+import edu.brown.cs.student.main.CSV.CSVData;
+import java.lang.reflect.Type;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.HashMap;
+import java.util.Map;
+import spark.Request;
+import spark.Response;
+import spark.Route;
+
+/**
+ * The `LoadHandler` class is responsible for handling HTTP requests related to loading CSV data in
+ * a web application. It implements the Spark `Route` interface, allowing it to process incoming
+ * HTTP GET requests. This class extracts the file path from the request parameters, sets it in a
+ * `CSVData` object, and generates JSON responses indicating success or failure.
+ */
+public class LoadHandler implements Route {
+  //  private Server server;
+  private String filepath;
+  private CSVData data;
+
+<span class="fc" id="L28">  public LoadHandler(CSVData data) {</span>
+<span class="fc" id="L29">    this.data = data;</span>
+<span class="fc" id="L30">  }</span>
+
+  /**
+   * Handles the incoming HTTP GET request to load CSV data. It extracts the file path from the
+   * request parameters, sets it in the `CSVData` object, and responds with a JSON message
+   * indicating success or failure.
+   *
+   * @param request The HTTP request object.
+   * @param response The HTTP response object.
+   * @return A JSON response indicating the success or failure of the CSV data loading request.
+   * @throws Exception If there are any exceptions during request handling.
+   */
+  @Override
+  public Object handle(Request request, Response response) throws Exception {
+<span class="fc" id="L44">    this.filepath = request.queryParams(&quot;filepath&quot;);</span>
+<span class="fc" id="L45">    this.data.setFilePath(filepath);</span>
+<span class="pc bpc" id="L46" title="2 of 4 branches missed.">    if (filepath == null || filepath.isEmpty()) {</span>
+<span class="nc" id="L47">      return new FailureResponse(this.filepath).serialize();</span>
+    }
+<span class="fc" id="L49">    Path path = Paths.get(filepath);</span>
+<span class="pc bpc" id="L50" title="2 of 4 branches missed.">    if (!Files.exists(path) || !Files.isReadable(path)) {</span>
+<span class="nc" id="L51">      return new FailureResponse(this.filepath).serialize();</span>
+    }
+
+<span class="fc" id="L54">    return new SuccessResponse(this.filepath).serialize();</span>
+  }
+
+  /**
+   * The `SuccessResponse` record represents a JSON response indicating a successful CSV data
+   * loading operation. It includes methods for serializing the response as JSON.
+   */
+<span class="pc" id="L61">  public record SuccessResponse(String success) {</span>
+    /**
+     * Serializes the success response as JSON.
+     *
+     * @return A JSON representation of the success response.
+     */
+    String serialize() {
+<span class="fc" id="L68">      Moshi moshi = new Moshi.Builder().build();</span>
+<span class="fc" id="L69">      Type mapStringObject = Types.newParameterizedType(Map.class, String.class, Object.class);</span>
+<span class="fc" id="L70">      JsonAdapter&lt;Map&lt;String, Object&gt;&gt; adapter = moshi.adapter(mapStringObject);</span>
+<span class="fc" id="L71">      Map&lt;String, Object&gt; responseMap = new HashMap&lt;&gt;();</span>
+      try {
+<span class="fc" id="L73">        responseMap.put(&quot;filepath&quot;, success);</span>
+<span class="fc" id="L74">        responseMap.put(&quot;result&quot;, &quot;success&quot;);</span>
+<span class="fc" id="L75">        return adapter.toJson(responseMap);</span>
+<span class="nc" id="L76">      } catch (Exception e) {</span>
+        // spark java will not recognize exception, so we have to catch it
+        // too narrow, anything broad that spark will catch is acceptable
+<span class="nc" id="L79">        responseMap.put(&quot;type&quot;, &quot;error&quot;);</span>
+<span class="nc" id="L80">        responseMap.put(&quot;error_type&quot;, &quot;error_bad_json&quot;);</span>
+<span class="nc" id="L81">        responseMap.put(&quot;details&quot;, e.getMessage());</span>
+<span class="nc" id="L82">        return adapter.toJson(responseMap);</span>
+      }
+    }
+  }
+
+  /**
+   * The `FailureResponse` record represents a JSON response indicating a failed CSV data loading
+   * operation, typically due to missing or empty file information. It includes methods for
+   * serializing the response as JSON.
+   */
+<span class="nc" id="L92">  public record FailureResponse(String filepath) {</span>
+
+    /**
+     * Serializes the failure response as JSON.
+     *
+     * @return A JSON representation of the failure response.
+     */
+    String serialize() {
+<span class="nc" id="L100">      Moshi moshi = new Moshi.Builder().build();</span>
+<span class="nc" id="L101">      Type mapStringObject = Types.newParameterizedType(Map.class, String.class, Object.class);</span>
+<span class="nc" id="L102">      JsonAdapter&lt;Map&lt;String, Object&gt;&gt; adapter = moshi.adapter(mapStringObject);</span>
+<span class="nc" id="L103">      Map&lt;String, Object&gt; responseMap = new HashMap&lt;&gt;();</span>
+<span class="nc" id="L104">      responseMap.put(&quot;result&quot;, &quot;failure&quot;);</span>
+<span class="nc" id="L105">      responseMap.put(&quot;error_type&quot;, &quot;error_bad_request&quot;);</span>
+<span class="nc" id="L106">      responseMap.put(&quot;details&quot;, &quot;missing or empty file.&quot;);</span>
+<span class="nc" id="L107">      return adapter.toJson(responseMap);</span>
+    }
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

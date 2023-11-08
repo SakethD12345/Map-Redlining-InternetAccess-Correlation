@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>SearchHandler.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">s0</a> &gt; <a href="index.source.html" class="el_package">edu.brown.cs.student.main.Handlers</a> &gt; <span class="el_source">SearchHandler.java</span></div><h1>SearchHandler.java</h1><pre class="source lang-java linenums">package edu.brown.cs.student.main.Handlers;
+
+import com.squareup.moshi.JsonAdapter;
+import com.squareup.moshi.Moshi;
+import edu.brown.cs.student.main.CSV.CSVData;
+import edu.brown.cs.student.main.CSV.Searcher;
+import edu.brown.cs.student.main.Exceptions.FactoryFailureException;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.List;
+import spark.Request;
+import spark.Response;
+import spark.Route;
+
+/**
+ * The `SearchHandler` class is responsible for handling HTTP requests related to searching within
+ * CSV data in a web application. It implements the Spark `Route` interface, allowing it to process
+ * incoming HTTP GET requests. This class retrieves the file path from a `CSVData` object, performs
+ * searches within the CSV data based on specified criteria (e.g., value, headers, column name or
+ * index), and generates JSON responses containing the search results or error information.
+ */
+public class SearchHandler implements Route {
+  private CSVData data;
+  private String filepath;
+
+<span class="fc" id="L26">  public SearchHandler(CSVData data) {</span>
+<span class="fc" id="L27">    this.data = data;</span>
+<span class="fc" id="L28">  }</span>
+
+  /**
+   * Handles the incoming HTTP GET request for searching within CSV data. It retrieves the file path
+   * from the associated `CSVData` object, performs the search based on request parameters, and
+   * responds with a JSON message containing the search results or an error message.
+   *
+   * @param request The HTTP request object.
+   * @param response The HTTP response object.
+   * @return A JSON response containing either the search results or an error message.
+   * @throws IOException If there are any I/O errors during the search operation.
+   * @throws FactoryFailureException If there are any failures related to factory operations.
+   */
+  public Object handle(Request request, Response response)
+      throws IOException, FactoryFailureException {
+<span class="fc" id="L43">    this.filepath = data.getFilePath();</span>
+
+<span class="pc bpc" id="L45" title="2 of 4 branches missed.">    if (this.filepath == null || this.filepath.isEmpty()) {</span>
+<span class="nc" id="L46">      HashMap&lt;String, Object&gt; failure = new HashMap&lt;&gt;();</span>
+<span class="nc" id="L47">      failure.put(&quot;result: &quot;, &quot;error_bad_request: &quot; + this.filepath);</span>
+<span class="nc" id="L48">      return new FailureResponse(failure).serialize();</span>
+    }
+
+<span class="fc" id="L51">    String value = request.queryParams(&quot;Value&quot;);</span>
+<span class="fc" id="L52">    String headers = request.queryParams(&quot;Headers&quot;);</span>
+
+<span class="fc bfc" id="L54" title="All 2 branches covered.">    if (headers.equalsIgnoreCase(&quot;no&quot;)) {</span>
+<span class="fc" id="L55">      Searcher searcher = new Searcher(this.filepath, value);</span>
+<span class="fc" id="L56">      List&lt;List&lt;String&gt;&gt; result = searcher.getNoHeaderResult();</span>
+<span class="fc" id="L57">      return new SearchHandler.SuccessResponse(result).serialize();</span>
+    }
+
+<span class="fc" id="L60">    String nameOrIndex = request.queryParams(&quot;NameOrIndex&quot;);</span>
+
+<span class="pc bpc" id="L62" title="1 of 2 branches missed.">    if (headers.equalsIgnoreCase(&quot;yes&quot;)) {</span>
+<span class="fc bfc" id="L63" title="All 2 branches covered.">      if (nameOrIndex.equalsIgnoreCase(&quot;name&quot;)) {</span>
+<span class="fc" id="L64">        String name = request.queryParams(&quot;Name&quot;);</span>
+<span class="fc" id="L65">        Searcher searcher = new Searcher(this.filepath, value, name);</span>
+<span class="fc" id="L66">        List&lt;List&lt;String&gt;&gt; result = searcher.getColumnNameResult();</span>
+<span class="fc" id="L67">        return new SearchHandler.SuccessResponse(result).serialize();</span>
+<span class="pc bpc" id="L68" title="1 of 2 branches missed.">      } else if (nameOrIndex.equalsIgnoreCase(&quot;index&quot;)) {</span>
+<span class="fc" id="L69">        int index = Integer.parseInt(request.queryParams(&quot;Index&quot;));</span>
+<span class="fc" id="L70">        Searcher searcher = new Searcher(this.filepath, value, index);</span>
+<span class="fc" id="L71">        List&lt;List&lt;String&gt;&gt; result = searcher.getColumnNumberResult();</span>
+<span class="fc" id="L72">        return new SearchHandler.SuccessResponse(result).serialize();</span>
+      }
+    }
+
+<span class="nc" id="L76">    return null;</span>
+  }
+
+  /**
+   * The `SuccessResponse` record represents a JSON response indicating a successful search
+   * operation within CSV data. It includes methods for serializing the response as JSON.
+   */
+<span class="fc" id="L83">  public record SuccessResponse(List&lt;List&lt;String&gt;&gt; data) {</span>
+    /**
+     * Serializes the success response as JSON.
+     *
+     * @return A JSON representation of the success response.
+     */
+    String serialize() {
+      try {
+<span class="fc" id="L91">        Moshi moshi = new Moshi.Builder().build();</span>
+<span class="fc" id="L92">        JsonAdapter&lt;SearchHandler.SuccessResponse&gt; adapter =</span>
+<span class="fc" id="L93">            moshi.adapter(SearchHandler.SuccessResponse.class);</span>
+<span class="fc" id="L94">        return adapter.toJson(this);</span>
+<span class="nc" id="L95">      } catch (Exception e) {</span>
+<span class="nc" id="L96">        e.printStackTrace();</span>
+<span class="nc" id="L97">        throw e;</span>
+      }
+    }
+  }
+
+  /**
+   * The `FailureResponse` record represents a JSON response indicating a failed search operation
+   * within CSV data. It includes methods for serializing the response as JSON.
+   */
+<span class="nc" id="L106">  public record FailureResponse(HashMap&lt;String, Object&gt; filepath) {</span>
+
+    /**
+     * Serializes the success response as JSON.
+     *
+     * @return A JSON representation of the success response.
+     */
+    String serialize() {
+<span class="nc" id="L114">      Moshi moshi = new Moshi.Builder().build();</span>
+<span class="nc" id="L115">      return moshi.adapter(SearchHandler.FailureResponse.class).toJson(this);</span>
+    }
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

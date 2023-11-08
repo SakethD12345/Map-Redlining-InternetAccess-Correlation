@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Parser.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">s0</a> &gt; <a href="index.source.html" class="el_package">edu.brown.cs.student.main.CSV</a> &gt; <span class="el_source">Parser.java</span></div><h1>Parser.java</h1><pre class="source lang-java linenums">package edu.brown.cs.student.main.CSV;
+
+import edu.brown.cs.student.main.Exceptions.FactoryFailureException;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.Reader;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.regex.Pattern;
+import java.util.stream.Collectors;
+
+/**
+ * The `Parser` class is responsible for parsing CSV data from a provided `Reader` and converting it
+ * into a list of objects of type `T`. It uses a `CreatorFromRow` implementation to create objects
+ * from each CSV row, and it splits CSV rows into individual elements using a regular expression
+ * pattern.
+ *
+ * @param &lt;T&gt; The type of objects to create from CSV rows.
+ */
+public class Parser&lt;T&gt; {
+
+  private Reader r;
+  private Pattern regexSplitCSVRow;
+  private CreatorFromRow&lt;T&gt; type;
+  private ArrayList&lt;T&gt; listOfObjects;
+
+  /**
+   * Constructs a new `Parser` instance with the specified `Reader` and a `CreatorFromRow`
+   * implementation.
+   *
+   * @param r The `Reader` to read CSV data from.
+   * @param type The `CreatorFromRow` implementation for creating objects from CSV rows.
+   */
+<span class="fc" id="L35">  public Parser(Reader r, CreatorFromRow&lt;T&gt; type) {</span>
+<span class="fc" id="L36">    this.r = r;</span>
+<span class="fc" id="L37">    this.type = type;</span>
+<span class="fc" id="L38">    this.listOfObjects = new ArrayList&lt;&gt;();</span>
+
+    // Regular expression pattern to split CSV rows
+<span class="fc" id="L41">    this.regexSplitCSVRow = Pattern.compile(&quot;,(?=([^\\\&quot;]*\\\&quot;[^\\\&quot;]*\\\&quot;)*(?![^\\\&quot;]*\\\&quot;))&quot;);</span>
+<span class="fc" id="L42">  }</span>
+
+  /**
+   * Parses the CSV data from the provided `Reader` and converts it into a list of objects of type
+   * `T`.
+   *
+   * @return A list of objects created from the parsed CSV data.
+   * @throws RuntimeException If there are any issues during the parsing process, including I/O
+   *     errors or failures in object creation.
+   */
+  public ArrayList&lt;T&gt; parse() {
+    try {
+<span class="fc" id="L54">      BufferedReader reader = new BufferedReader(this.r);</span>
+<span class="fc" id="L55">      String line = reader.readLine();</span>
+
+<span class="fc bfc" id="L57" title="All 2 branches covered.">      while (line != null) {</span>
+<span class="fc" id="L58">        List&lt;String&gt; newLine = Arrays.stream(this.regexSplitCSVRow.split(line)).toList();</span>
+<span class="fc" id="L59">        List&lt;String&gt; cleanLine =</span>
+<span class="fc" id="L60">            newLine.stream().map(item -&gt; item.replaceAll(&quot;[\&quot;']&quot;, &quot;&quot;)).collect(Collectors.toList());</span>
+<span class="fc" id="L61">        this.listOfObjects.add(this.type.create(cleanLine));</span>
+<span class="fc" id="L62">        line = reader.readLine();</span>
+<span class="fc" id="L63">      }</span>
+
+<span class="fc" id="L65">      reader.close();</span>
+
+<span class="fc" id="L67">      return this.listOfObjects;</span>
+<span class="nc" id="L68">    } catch (IOException | FactoryFailureException e) {</span>
+<span class="nc" id="L69">      throw new RuntimeException(e);</span>
+    }
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Searcher.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">s0</a> &gt; <a href="index.source.html" class="el_package">edu.brown.cs.student.main.CSV</a> &gt; <span class="el_source">Searcher.java</span></div><h1>Searcher.java</h1><pre class="source lang-java linenums">package edu.brown.cs.student.main.CSV;
+
+import edu.brown.cs.student.main.Exceptions.FactoryFailureException;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+public class Searcher {
+
+  /**
+   * The `Searcher` class is responsible for searching CSV data based on specified criteria such as
+   * column name, column index, or with no headers. It can search for a specific item within the CSV
+   * data and return the rows that match the search criteria. This class uses a `Parser` to parse
+   * the CSV data and performs searches based on the provided parameters.
+   */
+  Parser p;
+
+  ArrayList&lt;ArrayList&lt;String&gt;&gt; listOfObjects;
+  String itemToSearchFor;
+  int columnNumber;
+  String columnName;
+  private List&lt;List&lt;String&gt;&gt; result;
+
+  /**
+   * Constructs a `Searcher` object to perform a search based on column name.
+   *
+   * @param fileName The name of the CSV file to search within.
+   * @param itemToSearchFor The item to search for within the CSV data.
+   * @param columnName The name of the column to search within.
+   * @throws FileNotFoundException If the CSV file is not found.
+   */
+  public Searcher(String fileName, String itemToSearchFor, String columnName)
+<span class="fc" id="L36">      throws FileNotFoundException {</span>
+
+<span class="fc" id="L38">    this.itemToSearchFor = itemToSearchFor;</span>
+
+<span class="fc" id="L40">    Creator type = new Creator();</span>
+<span class="fc" id="L41">    BufferedReader reader = new BufferedReader(new FileReader(fileName));</span>
+
+<span class="fc" id="L43">    this.p = new Parser(reader, type);</span>
+<span class="fc" id="L44">    this.listOfObjects = p.parse();</span>
+<span class="fc" id="L45">    this.columnName = columnName;</span>
+<span class="fc" id="L46">    this.result = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L47">    searchWithColumnName();</span>
+<span class="fc" id="L48">  }</span>
+
+  /**
+   * Searches for rows within the CSV data based on a specified column name. It converts the column
+   * names to lowercase for case-insensitive matching, finds the index of the target column, and
+   * then compares the values in that column to the provided item to search for matches. Matching
+   * rows are added to the result.
+   */
+  public void searchWithColumnName() {
+
+<span class="fc" id="L58">    List&lt;String&gt; headerRow = this.listOfObjects.get(0);</span>
+
+<span class="fc" id="L60">    List&lt;String&gt; headerRowLowerCase = new ArrayList&lt;&gt;();</span>
+
+<span class="fc bfc" id="L62" title="All 2 branches covered.">    for (String header : headerRow) {</span>
+<span class="fc" id="L63">      headerRowLowerCase.add(header.toLowerCase());</span>
+<span class="fc" id="L64">    }</span>
+
+<span class="fc" id="L66">    int columnIndex = headerRowLowerCase.indexOf(this.columnName.toLowerCase());</span>
+<span class="fc" id="L67">    this.listOfObjects.remove(0);</span>
+
+<span class="fc bfc" id="L69" title="All 2 branches covered.">    for (List&lt;String&gt; row : this.listOfObjects) {</span>
+<span class="fc bfc" id="L70" title="All 2 branches covered.">      if (row.get(columnIndex).equals(this.itemToSearchFor)) {</span>
+<span class="fc" id="L71">        this.result.add(row);</span>
+      }
+<span class="fc" id="L73">    }</span>
+<span class="fc" id="L74">  }</span>
+
+  /**
+   * Performs a search based on column name and returns the matching rows.
+   *
+   * @return A list of lists containing the rows that match the search criteria.
+   */
+  public List&lt;List&lt;String&gt;&gt; getColumnNameResult() {
+<span class="fc" id="L82">    return this.result;</span>
+  }
+
+  /**
+   * Constructs a `Searcher` object to perform a search based on column index.
+   *
+   * @param fileName The name of the CSV file to search within.
+   * @param itemToSearchFor The item to search for within the CSV data.
+   * @param columnNumber The index of the column to search within.
+   * @throws IOException If there is an I/O error while reading the CSV file.
+   * @throws FactoryFailureException If there is a factory failure.
+   */
+  public Searcher(String fileName, String itemToSearchFor, int columnNumber)
+<span class="fc" id="L95">      throws IOException, FactoryFailureException {</span>
+<span class="fc" id="L96">    this.itemToSearchFor = itemToSearchFor;</span>
+
+<span class="fc" id="L98">    Creator type = new Creator();</span>
+<span class="fc" id="L99">    BufferedReader reader = new BufferedReader(new FileReader(fileName));</span>
+
+<span class="fc" id="L101">    this.p = new Parser(reader, type);</span>
+<span class="fc" id="L102">    this.listOfObjects = p.parse();</span>
+<span class="fc" id="L103">    this.columnNumber = columnNumber;</span>
+<span class="fc" id="L104">    this.result = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L105">    searchWithColumnNumber();</span>
+<span class="fc" id="L106">  }</span>
+
+  /**
+   * Searches for rows within the CSV data based on a specified column number. It removes the header
+   * row, then iterates through the remaining rows and compares the value in the specified column
+   * with the provided item to search for matches. Matching rows are added to the result.
+   */
+  public void searchWithColumnNumber() {
+<span class="fc" id="L114">    this.listOfObjects.remove(0);</span>
+
+<span class="fc bfc" id="L116" title="All 2 branches covered.">    for (List&lt;String&gt; row : this.listOfObjects) {</span>
+<span class="fc bfc" id="L117" title="All 2 branches covered.">      if (row.get(this.columnNumber).equals(this.itemToSearchFor)) {</span>
+<span class="fc" id="L118">        this.result.add(row);</span>
+      }
+<span class="fc" id="L120">    }</span>
+<span class="fc" id="L121">  }</span>
+
+  /**
+   * Performs a search based on column index and returns the matching rows.
+   *
+   * @return A list of lists containing the rows that match the search criteria.
+   */
+  public List&lt;List&lt;String&gt;&gt; getColumnNumberResult() {
+<span class="fc" id="L129">    return this.result;</span>
+  }
+
+  /**
+   * Constructs a `Searcher` object to perform a search with no headers.
+   *
+   * @param fileName The name of the CSV file to search within.
+   * @param itemToSearchFor The item to search for within the CSV data.
+   * @throws IOException If there is an I/O error while reading the CSV file.
+   * @throws FactoryFailureException If there is a factory failure.
+   */
+  public Searcher(String fileName, String itemToSearchFor)
+<span class="fc" id="L141">      throws IOException, FactoryFailureException {</span>
+<span class="fc" id="L142">    this.itemToSearchFor = itemToSearchFor;</span>
+
+<span class="fc" id="L144">    Creator type = new Creator();</span>
+<span class="fc" id="L145">    BufferedReader reader = new BufferedReader(new FileReader(fileName));</span>
+
+<span class="fc" id="L147">    this.p = new Parser(reader, type);</span>
+<span class="fc" id="L148">    this.listOfObjects = p.parse();</span>
+<span class="fc" id="L149">    this.result = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L150">    searchWithNoHeaders();</span>
+<span class="fc" id="L151">  }</span>
+
+  /**
+   * Searches for rows within the CSV data when there are no header rows. It iterates through all
+   * rows and all items within each row, comparing each item with the provided item to search for
+   * matches. Matching rows are added to the result.
+   */
+  public void searchWithNoHeaders() {
+
+<span class="fc bfc" id="L160" title="All 2 branches covered.">    for (List&lt;String&gt; row : this.listOfObjects) {</span>
+<span class="fc bfc" id="L161" title="All 2 branches covered.">      for (String item : row) {</span>
+<span class="fc bfc" id="L162" title="All 2 branches covered.">        if (item.equals(this.itemToSearchFor)) {</span>
+<span class="fc" id="L163">          this.result.add(row);</span>
+        }
+<span class="fc" id="L165">      }</span>
+<span class="fc" id="L166">    }</span>
+<span class="fc" id="L167">  }</span>
+
+  /**
+   * Performs a search with no headers and returns the matching rows.
+   *
+   * @return A list of lists containing the rows that match the search criteria.
+   */
+  public List&lt;List&lt;String&gt;&gt; getNoHeaderResult() {
+<span class="fc" id="L175">    return this.result;</span>
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

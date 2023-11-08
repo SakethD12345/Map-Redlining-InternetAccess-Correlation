@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>BroadbandHandler.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">s0</a> &gt; <a href="index.source.html" class="el_package">edu.brown.cs.student.main.Handlers</a> &gt; <span class="el_source">BroadbandHandler.java</span></div><h1>BroadbandHandler.java</h1><pre class="source lang-java linenums">package edu.brown.cs.student.main.Handlers;
+
+import com.squareup.moshi.JsonAdapter;
+import com.squareup.moshi.Moshi;
+import com.squareup.moshi.Types;
+import edu.brown.cs.student.main.Broadband.BroadbandDataSource;
+import java.lang.reflect.Type;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+import spark.Request;
+import spark.Response;
+import spark.Route;
+
+/**
+ * The `BroadbandHandler` class handles HTTP requests related to broadband data in a web
+ * application. It implements the Spark `Route` interface, enabling it to process incoming HTTP GET
+ * requests. This class interacts with a `BroadbandDataSource` to retrieve information about
+ * broadband availability in a specific state and county. It then generates JSON responses
+ * containing the broadband data, including the state, county, household percentage, and the date
+ * and time of access.
+ */
+public class BroadbandHandler implements Route {
+
+  private Date date;
+  private final BroadbandDataSource source;
+
+<span class="fc" id="L31">  public BroadbandHandler(BroadbandDataSource source) {</span>
+<span class="fc" id="L32">    this.source = source;</span>
+<span class="fc" id="L33">  }</span>
+
+  /**
+   * Handles the incoming HTTP GET request for broadband data. It retrieves state and county
+   * information from the request parameters, fetches broadband data from a data source, and
+   * responds with a JSON message containing the broadband details.
+   *
+   * @param request The HTTP request object.
+   * @param response The HTTP response object.
+   * @return A JSON response containing broadband data, or an error message if there's an issue.
+   * @throws Exception If there are any exceptions during request handling.
+   */
+  @Override
+  public Object handle(Request request, Response response) throws Exception {
+    try {
+<span class="fc" id="L48">      String state = request.queryParams(&quot;State&quot;);</span>
+<span class="fc" id="L49">      String stateCode = this.source.getStateCode(state);</span>
+<span class="fc" id="L50">      String county = request.queryParams(&quot;County&quot;);</span>
+<span class="fc" id="L51">      String countyCode = this.source.getCountyCode(stateCode, county);</span>
+<span class="fc" id="L52">      String percentage = this.source.getHouseholdPercentage(stateCode, countyCode);</span>
+<span class="fc" id="L53">      this.date = Calendar.getInstance().getTime();</span>
+<span class="fc" id="L54">      DateFormat dateFormat = new SimpleDateFormat(&quot;yyyy-MM-dd hh:mm:ss&quot;);</span>
+<span class="fc" id="L55">      String strDate = dateFormat.format(date);</span>
+
+<span class="fc" id="L57">      return new SuccessResponse(state, county, percentage, strDate).serialize();</span>
+<span class="fc" id="L58">    } catch (RuntimeException e) {</span>
+
+<span class="fc" id="L60">      return new FailureResponse().serialize();</span>
+    }
+  }
+
+<span class="fc" id="L64">  public record FailureResponse() {</span>
+    /**
+     * Serializes the failure response as JSON.
+     *
+     * @return A JSON representation of the failure response.
+     */
+    String serialize() {
+<span class="fc" id="L71">      Moshi moshi = new Moshi.Builder().build();</span>
+<span class="fc" id="L72">      Type mapStringObject = Types.newParameterizedType(Map.class, String.class, Object.class);</span>
+<span class="fc" id="L73">      JsonAdapter&lt;Map&lt;String, Object&gt;&gt; adapter = moshi.adapter(mapStringObject);</span>
+<span class="fc" id="L74">      Map&lt;String, Object&gt; responseMap = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L75">      responseMap.put(&quot;result&quot;, &quot;failure&quot;);</span>
+<span class="fc" id="L76">      responseMap.put(&quot;error_type&quot;, &quot;incorrect query format&quot;);</span>
+<span class="fc" id="L77">      return adapter.toJson(responseMap);</span>
+    }
+  }
+
+  /**
+   * The `SuccessResponse` record represents a JSON response indicating a successful broadband data
+   * retrieval operation. It includes methods for serializing the response as JSON.
+   */
+<span class="pc" id="L85">  public record SuccessResponse(String state, String county, String percentage, String date) {</span>
+
+    /**
+     * @return this response, serialized as Json
+     */
+    String serialize() {
+<span class="fc" id="L91">      Moshi moshi = new Moshi.Builder().build();</span>
+<span class="fc" id="L92">      Type mapStringObject = Types.newParameterizedType(Map.class, String.class, Object.class);</span>
+<span class="fc" id="L93">      JsonAdapter&lt;Map&lt;String, Object&gt;&gt; adapter = moshi.adapter(mapStringObject);</span>
+<span class="fc" id="L94">      Map&lt;String, Object&gt; responseMap = new HashMap&lt;&gt;();</span>
+      try {
+<span class="fc" id="L96">        responseMap.put(&quot;state&quot;, state);</span>
+<span class="fc" id="L97">        responseMap.put(&quot;county&quot;, county.replace(&quot;_&quot;, &quot; &quot;));</span>
+<span class="fc" id="L98">        responseMap.put(&quot;result&quot;, &quot;success&quot;);</span>
+<span class="fc" id="L99">        responseMap.put(&quot;household percentage&quot;, percentage);</span>
+<span class="fc" id="L100">        responseMap.put(&quot;date and time accessed:&quot;, date);</span>
+<span class="fc" id="L101">        return adapter.toJson(responseMap);</span>
+<span class="nc" id="L102">      } catch (Exception e) {</span>
+
+<span class="nc" id="L104">        responseMap.put(&quot;type&quot;, &quot;error&quot;);</span>
+<span class="nc" id="L105">        responseMap.put(&quot;error_type&quot;, &quot;error_bad_json&quot;);</span>
+<span class="nc" id="L106">        responseMap.put(&quot;details&quot;, e.getMessage());</span>
+<span class="nc" id="L107">        return adapter.toJson(responseMap);</span>
+      }
+    }
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="edu.brown.cs.student.Testing" time="6.213" tests="11" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="java.specification.version" value="17"/>
+    <property name="sun.jnu.encoding" value="UTF-8"/>
+    <property name="java.class.path" value="/Users/shadisoufan/Desktop/repl-cpbryant-ssoufan/repl/backend/target/test-classes:/Users/shadisoufan/Desktop/repl-cpbryant-ssoufan/repl/backend/target/classes:/Users/shadisoufan/.m2/repository/com/squareup/moshi/moshi/1.13.0/moshi-1.13.0.jar:/Users/shadisoufan/.m2/repository/com/squareup/okio/okio/2.10.0/okio-2.10.0.jar:/Users/shadisoufan/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib/1.4.20/kotlin-stdlib-1.4.20.jar:/Users/shadisoufan/.m2/repository/org/jetbrains/annotations/13.0/annotations-13.0.jar:/Users/shadisoufan/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib-common/1.4.20/kotlin-stdlib-common-1.4.20.jar:/Users/shadisoufan/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib-jdk8/1.6.0/kotlin-stdlib-jdk8-1.6.0.jar:/Users/shadisoufan/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib-jdk7/1.6.0/kotlin-stdlib-jdk7-1.6.0.jar:/Users/shadisoufan/.m2/repository/com/squareup/moshi/moshi-adapters/1.13.0/moshi-adapters-1.13.0.jar:/Users/shadisoufan/.m2/repository/com/sparkjava/spark-core/2.9.3/spark-core-2.9.3.jar:/Users/shadisoufan/.m2/repository/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar:/Users/shadisoufan/.m2/repository/org/eclipse/jetty/jetty-server/9.4.31.v20200723/jetty-server-9.4.31.v20200723.jar:/Users/shadisoufan/.m2/repository/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0.jar:/Users/shadisoufan/.m2/repository/org/eclipse/jetty/jetty-http/9.4.31.v20200723/jetty-http-9.4.31.v20200723.jar:/Users/shadisoufan/.m2/repository/org/eclipse/jetty/jetty-util/9.4.31.v20200723/jetty-util-9.4.31.v20200723.jar:/Users/shadisoufan/.m2/repository/org/eclipse/jetty/jetty-io/9.4.31.v20200723/jetty-io-9.4.31.v20200723.jar:/Users/shadisoufan/.m2/repository/org/eclipse/jetty/jetty-webapp/9.4.31.v20200723/jetty-webapp-9.4.31.v20200723.jar:/Users/shadisoufan/.m2/repository/org/eclipse/jetty/jetty-xml/9.4.31.v20200723/jetty-xml-9.4.31.v20200723.jar:/Users/shadisoufan/.m2/repository/org/eclipse/jetty/jetty-servlet/9.4.31.v20200723/jetty-servlet-9.4.31.v20200723.jar:/Users/shadisoufan/.m2/repository/org/eclipse/jetty/jetty-security/9.4.31.v20200723/jetty-security-9.4.31.v20200723.jar:/Users/shadisoufan/.m2/repository/org/eclipse/jetty/websocket/websocket-server/9.4.31.v20200723/websocket-server-9.4.31.v20200723.jar:/Users/shadisoufan/.m2/repository/org/eclipse/jetty/websocket/websocket-common/9.4.31.v20200723/websocket-common-9.4.31.v20200723.jar:/Users/shadisoufan/.m2/repository/org/eclipse/jetty/websocket/websocket-client/9.4.31.v20200723/websocket-client-9.4.31.v20200723.jar:/Users/shadisoufan/.m2/repository/org/eclipse/jetty/jetty-client/9.4.31.v20200723/jetty-client-9.4.31.v20200723.jar:/Users/shadisoufan/.m2/repository/org/eclipse/jetty/websocket/websocket-servlet/9.4.31.v20200723/websocket-servlet-9.4.31.v20200723.jar:/Users/shadisoufan/.m2/repository/org/eclipse/jetty/websocket/websocket-api/9.4.31.v20200723/websocket-api-9.4.31.v20200723.jar:/Users/shadisoufan/.m2/repository/org/testng/testng/7.8.0/testng-7.8.0.jar:/Users/shadisoufan/.m2/repository/com/beust/jcommander/1.82/jcommander-1.82.jar:/Users/shadisoufan/.m2/repository/org/webjars/jquery/3.6.1/jquery-3.6.1.jar:/Users/shadisoufan/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.4.0/junit-jupiter-engine-5.4.0.jar:/Users/shadisoufan/.m2/repository/org/apiguardian/apiguardian-api/1.0.0/apiguardian-api-1.0.0.jar:/Users/shadisoufan/.m2/repository/org/junit/platform/junit-platform-engine/1.4.0/junit-platform-engine-1.4.0.jar:/Users/shadisoufan/.m2/repository/org/opentest4j/opentest4j/1.1.1/opentest4j-1.1.1.jar:/Users/shadisoufan/.m2/repository/org/junit/platform/junit-platform-commons/1.4.0/junit-platform-commons-1.4.0.jar:/Users/shadisoufan/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.4.0/junit-jupiter-api-5.4.0.jar:"/>
+    <property name="java.vm.vendor" value="Homebrew"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.vendor.url" value="https://github.com/Homebrew/homebrew-core/issues"/>
+    <property name="user.timezone" value="America/New_York"/>
+    <property name="os.name" value="Mac OS X"/>
+    <property name="java.vm.specification.version" value="17"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="US"/>
+    <property name="sun.boot.library.path" value="/opt/homebrew/Cellar/openjdk@17/17.0.8.1/libexec/openjdk.jdk/Contents/Home/lib"/>
+    <property name="sun.java.command" value="/Users/shadisoufan/Desktop/repl-cpbryant-ssoufan/repl/backend/target/surefire/surefirebooter-20231025213721864_3.jar /Users/shadisoufan/Desktop/repl-cpbryant-ssoufan/repl/backend/target/surefire 2023-10-25T21-37-21_696-jvmRun1 surefire-20231025213721864_1tmp surefire_0-20231025213721864_2tmp"/>
+    <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="/Users/shadisoufan/Desktop/repl-cpbryant-ssoufan/repl/backend/target/test-classes:/Users/shadisoufan/Desktop/repl-cpbryant-ssoufan/repl/backend/target/classes:/Users/shadisoufan/.m2/repository/com/squareup/moshi/moshi/1.13.0/moshi-1.13.0.jar:/Users/shadisoufan/.m2/repository/com/squareup/okio/okio/2.10.0/okio-2.10.0.jar:/Users/shadisoufan/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib/1.4.20/kotlin-stdlib-1.4.20.jar:/Users/shadisoufan/.m2/repository/org/jetbrains/annotations/13.0/annotations-13.0.jar:/Users/shadisoufan/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib-common/1.4.20/kotlin-stdlib-common-1.4.20.jar:/Users/shadisoufan/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib-jdk8/1.6.0/kotlin-stdlib-jdk8-1.6.0.jar:/Users/shadisoufan/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib-jdk7/1.6.0/kotlin-stdlib-jdk7-1.6.0.jar:/Users/shadisoufan/.m2/repository/com/squareup/moshi/moshi-adapters/1.13.0/moshi-adapters-1.13.0.jar:/Users/shadisoufan/.m2/repository/com/sparkjava/spark-core/2.9.3/spark-core-2.9.3.jar:/Users/shadisoufan/.m2/repository/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar:/Users/shadisoufan/.m2/repository/org/eclipse/jetty/jetty-server/9.4.31.v20200723/jetty-server-9.4.31.v20200723.jar:/Users/shadisoufan/.m2/repository/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0.jar:/Users/shadisoufan/.m2/repository/org/eclipse/jetty/jetty-http/9.4.31.v20200723/jetty-http-9.4.31.v20200723.jar:/Users/shadisoufan/.m2/repository/org/eclipse/jetty/jetty-util/9.4.31.v20200723/jetty-util-9.4.31.v20200723.jar:/Users/shadisoufan/.m2/repository/org/eclipse/jetty/jetty-io/9.4.31.v20200723/jetty-io-9.4.31.v20200723.jar:/Users/shadisoufan/.m2/repository/org/eclipse/jetty/jetty-webapp/9.4.31.v20200723/jetty-webapp-9.4.31.v20200723.jar:/Users/shadisoufan/.m2/repository/org/eclipse/jetty/jetty-xml/9.4.31.v20200723/jetty-xml-9.4.31.v20200723.jar:/Users/shadisoufan/.m2/repository/org/eclipse/jetty/jetty-servlet/9.4.31.v20200723/jetty-servlet-9.4.31.v20200723.jar:/Users/shadisoufan/.m2/repository/org/eclipse/jetty/jetty-security/9.4.31.v20200723/jetty-security-9.4.31.v20200723.jar:/Users/shadisoufan/.m2/repository/org/eclipse/jetty/websocket/websocket-server/9.4.31.v20200723/websocket-server-9.4.31.v20200723.jar:/Users/shadisoufan/.m2/repository/org/eclipse/jetty/websocket/websocket-common/9.4.31.v20200723/websocket-common-9.4.31.v20200723.jar:/Users/shadisoufan/.m2/repository/org/eclipse/jetty/websocket/websocket-client/9.4.31.v20200723/websocket-client-9.4.31.v20200723.jar:/Users/shadisoufan/.m2/repository/org/eclipse/jetty/jetty-client/9.4.31.v20200723/jetty-client-9.4.31.v20200723.jar:/Users/shadisoufan/.m2/repository/org/eclipse/jetty/websocket/websocket-servlet/9.4.31.v20200723/websocket-servlet-9.4.31.v20200723.jar:/Users/shadisoufan/.m2/repository/org/eclipse/jetty/websocket/websocket-api/9.4.31.v20200723/websocket-api-9.4.31.v20200723.jar:/Users/shadisoufan/.m2/repository/org/testng/testng/7.8.0/testng-7.8.0.jar:/Users/shadisoufan/.m2/repository/com/beust/jcommander/1.82/jcommander-1.82.jar:/Users/shadisoufan/.m2/repository/org/webjars/jquery/3.6.1/jquery-3.6.1.jar:/Users/shadisoufan/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.4.0/junit-jupiter-engine-5.4.0.jar:/Users/shadisoufan/.m2/repository/org/apiguardian/apiguardian-api/1.0.0/apiguardian-api-1.0.0.jar:/Users/shadisoufan/.m2/repository/org/junit/platform/junit-platform-engine/1.4.0/junit-platform-engine-1.4.0.jar:/Users/shadisoufan/.m2/repository/org/opentest4j/opentest4j/1.1.1/opentest4j-1.1.1.jar:/Users/shadisoufan/.m2/repository/org/junit/platform/junit-platform-commons/1.4.0/junit-platform-commons-1.4.0.jar:/Users/shadisoufan/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.4.0/junit-jupiter-api-5.4.0.jar:"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="/Users/shadisoufan"/>
+    <property name="user.language" value="en"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2023-08-24"/>
+    <property name="java.home" value="/opt/homebrew/Cellar/openjdk@17/17.0.8.1/libexec/openjdk.jdk/Contents/Home"/>
+    <property name="file.separator" value="/"/>
+    <property name="basedir" value="/Users/shadisoufan/Desktop/repl-cpbryant-ssoufan/repl/backend"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="surefire.real.class.path" value="/Users/shadisoufan/Desktop/repl-cpbryant-ssoufan/repl/backend/target/surefire/surefirebooter-20231025213721864_3.jar"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
+    <property name="java.runtime.version" value="17.0.8.1+0"/>
+    <property name="user.name" value="shadisoufan"/>
+    <property name="path.separator" value=":"/>
+    <property name="os.version" value="12.4"/>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="java.vendor.version" value="Homebrew"/>
+    <property name="localRepository" value="/Users/shadisoufan/.m2/repository"/>
+    <property name="java.vendor.url.bug" value="https://github.com/Homebrew/homebrew-core/issues"/>
+    <property name="jetty.git.hash" value="450ba27947e13e66baa8cd1ce7e85a4461cacc1d"/>
+    <property name="java.io.tmpdir" value="/var/folders/bg/w824_6sx1h75ng18pj5wszlr0000gn/T/"/>
+    <property name="java.version" value="17.0.8.1"/>
+    <property name="user.dir" value="/Users/shadisoufan/Desktop/repl-cpbryant-ssoufan/repl/backend"/>
+    <property name="os.arch" value="aarch64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="native.encoding" value="UTF-8"/>
+    <property name="java.library.path" value="/Users/shadisoufan/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:."/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="java.vendor" value="Homebrew"/>
+    <property name="java.vm.version" value="17.0.8.1+0"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeBig"/>
+    <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
+    <property name="java.class.version" value="61.0"/>
+  </properties>
+  <testcase name="getStateCode" classname="edu.brown.cs.student.Testing" time="1.53">
+    <system-err><![CDATA[SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+]]></system-err>
+  </testcase>
+  <testcase name="testSearchCsvIndexAndSearchHandler" classname="edu.brown.cs.student.Testing" time="0.136"/>
+  <testcase name="testViewCsvAndViewHandler" classname="edu.brown.cs.student.Testing" time="0.029"/>
+  <testcase name="getHouseholdPercentage" classname="edu.brown.cs.student.Testing" time="1.975">
+    <system-out><![CDATA["87.1"
+household percentage: San Francisco County, California,87.1,06,075]]
+"83.0"
+household percentage: Monroe County, Florida,83.0,12,087]]
+]]></system-out>
+  </testcase>
+  <testcase name="getCountyCode" classname="edu.brown.cs.student.Testing" time="0.529"/>
+  <testcase name="testBroadBandFailure" classname="edu.brown.cs.student.Testing" time="0.499"/>
+  <testcase name="testBroadBandAndBroadHandler" classname="edu.brown.cs.student.Testing" time="1.435">
+    <system-out><![CDATA["87.6"
+household percentage: Bexar County, Texas,87.6,48,029]]
+]]></system-out>
+  </testcase>
+  <testcase name="testMockSource" classname="edu.brown.cs.student.Testing" time="0.007"/>
+  <testcase name="testSearchCsvNoHeadersAndSearchHandler" classname="edu.brown.cs.student.Testing" time="0.005"/>
+  <testcase name="testSearchCsvHeaderNameAndSearchHandler" classname="edu.brown.cs.student.Testing" time="0.004"/>
+  <testcase name="testLoadCSVAndLoadHandler" classname="edu.brown.cs.student.Testing" time="0.006"/>
+</testsuite>

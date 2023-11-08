@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Main.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">s0</a> &gt; <a href="index.source.html" class="el_package">edu.brown.cs.student.main</a> &gt; <span class="el_source">Main.java</span></div><h1>Main.java</h1><pre class="source lang-java linenums">package edu.brown.cs.student.main;
+
+import static spark.Spark.after;
+
+import edu.brown.cs.student.main.Broadband.RealBBSource;
+import edu.brown.cs.student.main.CSV.CSVData;
+import edu.brown.cs.student.main.Exceptions.FactoryFailureException;
+import edu.brown.cs.student.main.Handlers.BroadbandHandler;
+import edu.brown.cs.student.main.Handlers.LoadHandler;
+import edu.brown.cs.student.main.Handlers.SearchHandler;
+import edu.brown.cs.student.main.Handlers.ViewHandler;
+import java.io.IOException;
+import spark.Spark;
+
+/** The Main class of our project. This is where execution begins. */
+public class Main {
+
+  //  Parser p;
+  /**
+   * The initial method called when execution begins.
+   *
+   * @param args An array of command line arguments
+   */
+  public static void main(String[] args) throws IOException, FactoryFailureException {
+<span class="nc" id="L25">    int port = 2023;</span>
+<span class="nc" id="L26">    Spark.port(port);</span>
+<span class="nc" id="L27">    after(</span>
+        (request, response) -&gt; {
+<span class="nc" id="L29">          response.header(&quot;Access-Control-Allow-Origin&quot;, &quot;*&quot;);</span>
+<span class="nc" id="L30">          response.header(&quot;Access-Control-Allow-Methods&quot;, &quot;*&quot;);</span>
+<span class="nc" id="L31">        });</span>
+
+    // Setting up the handler for the GET /order and /mock endpoints
+<span class="nc" id="L34">    CSVData data = new CSVData(&quot;&quot;);</span>
+
+<span class="nc" id="L36">    Spark.get(&quot;loadCSV&quot;, new LoadHandler(data));</span>
+<span class="nc" id="L37">    Spark.get(&quot;viewCSV&quot;, new ViewHandler(data));</span>
+<span class="nc" id="L38">    Spark.get(&quot;searchCSV&quot;, new SearchHandler(data));</span>
+<span class="nc" id="L39">    Spark.get(&quot;broadband&quot;, new BroadbandHandler(new RealBBSource()));</span>
+    // have to go to endpoint mock for the website to not have 404 error
+
+<span class="nc" id="L42">    Spark.init();</span>
+<span class="nc" id="L43">    Spark.awaitInitialization();</span>
+<span class="nc" id="L44">    System.out.println(&quot;running&quot;);</span>
+
+    // Notice this link alone leads to a 404... Why is that?
+<span class="nc" id="L47">    System.out.println(&quot;Server started at http://localhost:&quot; + port);</span>
+<span class="nc" id="L48">  }</span>
+
+<span class="nc" id="L50">  Main(String[] args) {}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
