@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pmd xmlns="http://pmd.sourceforge.net/report/2.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pmd.sourceforge.net/report/2.0.0 http://pmd.sourceforge.net/report_2_0_0.xsd" version="6.46.0" timestamp="2023-09-15T19:14:40.351">
+<file name="/Users/shadisoufan/Desktop/CS32/csv-ShadiSoufan44/src/main/java/edu/brown/cs/student/main/Main.java">
+<violation beginline="39" endline="39" begincolumn="18" endcolumn="25" rule="UnusedLocalVariable" ruleset="Best Practices" package="edu.brown.cs.student.main" class="Main" method="main" variable="searcher" externalInfoUrl="https://pmd.github.io/pmd-6.46.0/pmd_rules_java_bestpractices.html#unusedlocalvariable" priority="3">
+Avoid unused local variables such as 'searcher'.
+</violation>
+<violation beginline="43" endline="43" begincolumn="18" endcolumn="25" rule="UnusedLocalVariable" ruleset="Best Practices" package="edu.brown.cs.student.main" class="Main" method="main" variable="searcher" externalInfoUrl="https://pmd.github.io/pmd-6.46.0/pmd_rules_java_bestpractices.html#unusedlocalvariable" priority="3">
+Avoid unused local variables such as 'searcher'.
+</violation>
+<violation beginline="46" endline="46" begincolumn="16" endcolumn="23" rule="UnusedLocalVariable" ruleset="Best Practices" package="edu.brown.cs.student.main" class="Main" method="main" variable="searcher" externalInfoUrl="https://pmd.github.io/pmd-6.46.0/pmd_rules_java_bestpractices.html#unusedlocalvariable" priority="3">
+Avoid unused local variables such as 'searcher'.
+</violation>
+<violation beginline="50" endline="50" begincolumn="25" endcolumn="28" rule="UnusedFormalParameter" ruleset="Best Practices" package="edu.brown.cs.student.main" class="Main" method="Main" variable="args" externalInfoUrl="https://pmd.github.io/pmd-6.46.0/pmd_rules_java_bestpractices.html#unusedformalparameter" priority="3">
+Avoid unused constructor parameters such as 'args'.
+</violation>
+<violation beginline="52" endline="52" begincolumn="16" endcolumn="25" rule="UnusedPrivateMethod" ruleset="Best Practices" package="edu.brown.cs.student.main" class="Main" method="firstTry" externalInfoUrl="https://pmd.github.io/pmd-6.46.0/pmd_rules_java_bestpractices.html#unusedprivatemethod" priority="3">
+Avoid unused private methods such as 'firstTry()'.
+</violation>
+</file>
+</pmd>

@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>RealBBSource.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">s0</a> &gt; <a href="index.source.html" class="el_package">edu.brown.cs.student.main.Broadband</a> &gt; <span class="el_source">RealBBSource.java</span></div><h1>RealBBSource.java</h1><pre class="source lang-java linenums">package edu.brown.cs.student.main.Broadband;
+
+import edu.brown.cs.student.main.Exceptions.DatasourceException;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.ProtocolException;
+import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
+
+/**
+ * The `RealBBSource` class implements the `BroadbandDataSource` interface and is responsible for
+ * retrieving real-world broadband data from external sources using API requests. It provides
+ * methods to fetch the household percentage of broadband internet access for a specific state and
+ * county, as well as to obtain state and county codes. The class uses HTTP requests to interact
+ * with the Census API and handles various exceptions related to network communication and data
+ * retrieval.
+ */
+public class RealBBSource implements BroadbandDataSource {
+
+  /** Constructs a new `RealBBSource` instance. */
+<span class="fc" id="L25">  public RealBBSource() {}</span>
+
+  @Override
+  public BroadbandData getCurrentBroadband(StateAndCounty location) throws DatasourceException {
+<span class="nc" id="L29">    return null;</span>
+  }
+
+  /**
+   * Retrieves the household broadband percentage for a given state and county using the Census API.
+   *
+   * @param stateCode The state code for the desired state.
+   * @param countyCode The county code for the desired county.
+   * @return The household broadband percentage as a string.
+   */
+  public String getHouseholdPercentage(String stateCode, String countyCode) {
+
+    try {
+<span class="fc" id="L42">      URL url =</span>
+          new URL(
+              &quot;https://api.census.gov/data/2021/acs/acs1/subject/variables?get&quot;
+                  + &quot;=NAME,S2802_C03_022E&amp;for=county:&quot;
+                  + countyCode
+                  + &quot;&amp;in=state:&quot;
+                  + stateCode);
+      // Open a connection to the URL
+<span class="fc" id="L50">      HttpURLConnection connection = (HttpURLConnection) url.openConnection();</span>
+<span class="fc" id="L51">      connection.setRequestMethod(&quot;GET&quot;);</span>
+
+      // Read the response from the API
+<span class="fc" id="L54">      BufferedReader reader =</span>
+<span class="fc" id="L55">          new BufferedReader(new InputStreamReader(connection.getInputStream()));</span>
+      String line;
+<span class="fc" id="L57">      StringBuilder response = new StringBuilder();</span>
+
+<span class="fc bfc" id="L59" title="All 2 branches covered.">      while ((line = reader.readLine()) != null) {</span>
+<span class="fc" id="L60">        response.append(line);</span>
+      }
+<span class="fc" id="L62">      reader.close();</span>
+<span class="fc" id="L63">      connection.disconnect();</span>
+<span class="fc" id="L64">      String apiResponse = response.toString();</span>
+<span class="fc" id="L65">      String[] lines = apiResponse.split(&quot;],&quot;);</span>
+<span class="fc" id="L66">      String[] result = new String[lines.length];</span>
+<span class="fc bfc" id="L67" title="All 2 branches covered.">      for (int i = 0; i &lt; lines.length; i++) {</span>
+<span class="fc" id="L68">        result[i] = lines[i].trim();</span>
+      }
+<span class="fc" id="L70">      String row = result[1].substring(1);</span>
+<span class="fc" id="L71">      String[] results = row.split(&quot;,&quot;);</span>
+<span class="fc" id="L72">      System.out.println(results[2]);</span>
+<span class="fc" id="L73">      System.out.println(&quot;household percentage: &quot; + row.substring(1).replace(&quot;\&quot;&quot;, &quot;&quot;));</span>
+<span class="fc" id="L74">      return results[2].replace(&quot;\&quot;&quot;, &quot;&quot;);</span>
+<span class="nc" id="L75">    } catch (ProtocolException e) {</span>
+<span class="nc" id="L76">      throw new RuntimeException(e);</span>
+<span class="nc" id="L77">    } catch (MalformedURLException e) {</span>
+<span class="nc" id="L78">      throw new RuntimeException(e);</span>
+<span class="nc" id="L79">    } catch (IOException e) {</span>
+<span class="nc" id="L80">      throw new RuntimeException(e);</span>
+    }
+    // response includes date and time that all data was retrieved, and state and county names
+    // received
+    // state and county query parameters
+  }
+
+  /**
+   * Retrieves the state code for a given state name using the Census API.
+   *
+   * @param state The name of the state.
+   * @return The state code as a string.
+   */
+  public String getStateCode(String state) {
+
+    try {
+
+<span class="fc" id="L97">      URL url = new URL(&quot;https://api.census.gov/data/2010/dec/sf1?get=NAME&amp;for=state:*&quot;);</span>
+      // Open a connection to the URL
+<span class="fc" id="L99">      HttpURLConnection connection = (HttpURLConnection) url.openConnection();</span>
+<span class="fc" id="L100">      connection.setRequestMethod(&quot;GET&quot;);</span>
+
+      // Read the response from the API
+<span class="fc" id="L103">      BufferedReader reader =</span>
+<span class="fc" id="L104">          new BufferedReader(new InputStreamReader(connection.getInputStream()));</span>
+      String line;
+<span class="fc" id="L106">      StringBuilder response = new StringBuilder();</span>
+
+<span class="fc bfc" id="L108" title="All 2 branches covered.">      while ((line = reader.readLine()) != null) {</span>
+<span class="fc" id="L109">        response.append(line);</span>
+      }
+<span class="fc" id="L111">      reader.close();</span>
+<span class="fc" id="L112">      connection.disconnect();</span>
+<span class="fc" id="L113">      String apiResponse = response.toString();</span>
+<span class="fc" id="L114">      String[] lines = apiResponse.split(&quot;],&quot;);</span>
+<span class="fc" id="L115">      String[] result = new String[lines.length];</span>
+      // Iterate through lines to store each line in the result array
+<span class="fc bfc" id="L117" title="All 2 branches covered.">      for (int i = 0; i &lt; lines.length; i++) {</span>
+<span class="fc" id="L118">        result[i] = lines[i] + &quot;]&quot;;</span>
+      }
+<span class="fc" id="L120">      Map&lt;String, String&gt; stateCodeMap = new HashMap&lt;&gt;();</span>
+<span class="fc bfc" id="L121" title="All 2 branches covered.">      for (String myResult : result) {</span>
+<span class="fc" id="L122">        String[] parts = myResult.replaceAll(&quot;\\[|\\]&quot;, &quot;&quot;).split(&quot;,&quot;);</span>
+<span class="pc bpc" id="L123" title="1 of 2 branches missed.">        if (parts.length == 2) {</span>
+          // Trim whitespace from state name and code
+<span class="fc" id="L125">          String stateName = parts[0].trim().replaceAll(&quot;\&quot;&quot;, &quot;&quot;);</span>
+<span class="fc" id="L126">          String stateCode = parts[1].trim().replaceAll(&quot;\&quot;&quot;, &quot;&quot;);</span>
+
+          // Put the state name as the value and state code as the key
+<span class="fc" id="L129">          stateCodeMap.put(stateName, stateCode);</span>
+        }
+      }
+<span class="fc" id="L132">      String code = stateCodeMap.get(state);</span>
+
+<span class="fc bfc" id="L134" title="All 2 branches covered.">      if (code == null) {</span>
+
+<span class="fc" id="L136">        throw new Exception();</span>
+      }
+<span class="fc" id="L138">      return code;</span>
+<span class="fc" id="L139">    } catch (Exception e) {</span>
+
+<span class="fc" id="L141">      throw new RuntimeException(e);</span>
+    }
+    //    return null;
+  }
+
+  /**
+   * Retrieves the county code for a given county name and state code using the Census API.
+   *
+   * @param stateCode The state code for the associated state.
+   * @param county The name of the county.
+   * @return The county code as a string.
+   */
+  public String getCountyCode(String stateCode, String county) {
+    try {
+<span class="fc" id="L155">      URL url =</span>
+          new URL(
+              &quot;https://api.census.gov/data/2010/dec/sf1?get=NAME&amp;for=county:*&amp;in=state:&quot;
+                  + stateCode);
+      // Open a connection to the URL
+<span class="fc" id="L160">      HttpURLConnection connection = (HttpURLConnection) url.openConnection();</span>
+<span class="fc" id="L161">      connection.setRequestMethod(&quot;GET&quot;);</span>
+
+      // Read the response from the API
+<span class="fc" id="L164">      BufferedReader reader =</span>
+<span class="fc" id="L165">          new BufferedReader(new InputStreamReader(connection.getInputStream()));</span>
+      String line;
+<span class="fc" id="L167">      StringBuilder response = new StringBuilder();</span>
+
+<span class="fc bfc" id="L169" title="All 2 branches covered.">      while ((line = reader.readLine()) != null) {</span>
+<span class="fc" id="L170">        response.append(line);</span>
+      }
+<span class="fc" id="L172">      reader.close();</span>
+<span class="fc" id="L173">      connection.disconnect();</span>
+<span class="fc" id="L174">      String apiResponse = response.toString();</span>
+<span class="fc" id="L175">      String[] lines = apiResponse.split(&quot;\\],\\[&quot;);</span>
+<span class="fc" id="L176">      String[] result = new String[lines.length];</span>
+      // Iterate through lines to store each line in the result array
+<span class="fc bfc" id="L178" title="All 2 branches covered.">      for (int i = 0; i &lt; lines.length; i++) {</span>
+<span class="fc" id="L179">        result[i] = lines[i];</span>
+      }
+<span class="fc" id="L181">      Map&lt;String, String&gt; countyCodeMap = new HashMap&lt;&gt;();</span>
+<span class="fc bfc" id="L182" title="All 2 branches covered.">      for (String myResult : result) {</span>
+<span class="fc" id="L183">        String[] parts = myResult.split(&quot;\&quot;,\&quot;&quot;);</span>
+<span class="fc" id="L184">        String[] countyName_before =</span>
+<span class="fc" id="L185">            parts[0].substring(1).split(&quot;,&quot;); // Split the string at the comma</span>
+<span class="fc" id="L186">        String countyName =</span>
+<span class="fc" id="L187">            countyName_before[0].trim(); // Get the first part and remove leading/trailing spaces</span>
+<span class="fc" id="L188">        String countyCode = parts[2].replace(&quot;\&quot;&quot;, &quot;&quot;);</span>
+<span class="fc" id="L189">        countyCodeMap.put(countyName, countyCode);</span>
+      }
+<span class="fc" id="L191">      county = county.replace(&quot;_&quot;, &quot; &quot;);</span>
+<span class="fc" id="L192">      return countyCodeMap.get(county);</span>
+<span class="nc" id="L193">    } catch (Exception e) {</span>
+<span class="nc" id="L194">      e.printStackTrace();</span>
+    }
+<span class="nc" id="L196">    return null;</span>
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

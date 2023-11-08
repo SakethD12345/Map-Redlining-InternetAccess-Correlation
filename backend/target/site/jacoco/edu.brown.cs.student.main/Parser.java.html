@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Parser.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">s0</a> &gt; <a href="index.source.html" class="el_package">edu.brown.cs.student.main</a> &gt; <span class="el_source">Parser.java</span></div><h1>Parser.java</h1><pre class="source lang-java linenums">package edu.brown.cs.student.main;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.Reader;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.regex.Pattern;
+
+public class Parser&lt;T&gt; {
+
+  Reader r;
+  Pattern regexSplitCSVRow;
+  CreatorFromRow&lt;T&gt; type;
+  ArrayList&lt;T&gt; listOfObjects;
+
+<span class="fc" id="L18">  public Parser(Reader r, CreatorFromRow&lt;T&gt; type) {</span>
+<span class="fc" id="L19">    this.r = r;</span>
+<span class="fc" id="L20">    this.type = type;</span>
+<span class="fc" id="L21">    this.listOfObjects = new ArrayList&lt;&gt;();</span>
+
+<span class="fc" id="L23">    this.regexSplitCSVRow = Pattern.compile(&quot;,(?=([^\\\&quot;]*\\\&quot;[^\\\&quot;]*\\\&quot;)*(?![^\\\&quot;]*\\\&quot;))&quot;);</span>
+<span class="fc" id="L24">  }</span>
+
+  public ArrayList&lt;T&gt; parse() {
+    try {
+<span class="fc" id="L28">      BufferedReader reader = new BufferedReader(this.r);</span>
+<span class="fc" id="L29">      String line = reader.readLine();</span>
+
+<span class="fc bfc" id="L31" title="All 2 branches covered.">      while (line != null) {</span>
+<span class="fc" id="L32">        List&lt;String&gt; newLine = Arrays.stream(this.regexSplitCSVRow.split(line)).toList();</span>
+<span class="fc" id="L33">        this.listOfObjects.add(this.type.create(newLine));</span>
+<span class="fc" id="L34">        line = reader.readLine();</span>
+<span class="fc" id="L35">      }</span>
+
+<span class="fc" id="L37">      reader.close();</span>
+
+<span class="fc" id="L39">      return this.listOfObjects;</span>
+<span class="nc" id="L40">    } catch (IOException | FactoryFailureException e) {</span>
+<span class="nc" id="L41">      throw new RuntimeException(e);</span>
+    }
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
