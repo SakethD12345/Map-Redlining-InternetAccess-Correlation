@@ -1,5 +1,9 @@
-.App {
+/* .App {
   text-align: center;
+} */
+
+.App {
+  display: flex;
 }
 
 .App-header {
@@ -11,4 +15,43 @@
   justify-content: center;
   font-size: calc(1px + 2vmin);
   color: white;
+}
+.form-container {
+  display: flex;
+  flex-direction: column;
+  background-color: bisque;
+  width: 150px;
+  font-size: 12px;
+}
+
+.keyword-search-form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+  background-color: darkseagreen;
+  width: 150px;
+  font-size: 12px;
+}
+
+/* .status-form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+  background-color: bisque;
+  width: 150px;
+  font-size: 12px;
+  height: 200px;
+} */
+
+.form_input_box {
+  margin-left: 20px;
+  width: 100px;
+}
+
+.command-button {
+  margin-top: 20px;
+}
+
+.error-text {
+  background-color: red;
 }

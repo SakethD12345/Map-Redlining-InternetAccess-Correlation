@@ -5,299 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f91046b6-4395-48f3-a8e1-fa847fb4a5d2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/backend.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/intellij-java-google-style.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/brown/cs/student/main/Broadband/BroadbandData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/brown/cs/student/main/Broadband/BroadbandDataSource.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/brown/cs/student/main/Broadband/RealBBSource.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/brown/cs/student/main/Broadband/StateAndCounty.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/brown/cs/student/main/CSV/CSVData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/brown/cs/student/main/CSV/Creator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/brown/cs/student/main/CSV/Parser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/brown/cs/student/main/CSV/Searcher.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/brown/cs/student/main/Data/census/dol_ri_earnings_disparity.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/brown/cs/student/main/Data/census/income_by_race_edited.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/brown/cs/student/main/Data/census/integercol.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/brown/cs/student/main/Data/census/no header.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/brown/cs/student/main/Data/census/postsecondary_education.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/brown/cs/student/main/Data/stars/empty.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/brown/cs/student/main/Data/stars/stardata.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/brown/cs/student/main/Exceptions/DatasourceException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/brown/cs/student/main/Exceptions/FactoryFailureException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/brown/cs/student/main/Handlers/BroadbandHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/brown/cs/student/main/Handlers/LoadHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/brown/cs/student/main/Handlers/MapsHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/brown/cs/student/main/Handlers/SearchHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/brown/cs/student/main/Handlers/ViewHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/brown/cs/student/main/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/brown/cs/student/main/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/brown/cs/student/main/Server/GeoJsonCollection.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/brown/cs/student/main/Server/JsonParsing.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/edu/brown/cs/student/MockedBBSource.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/edu/brown/cs/student/Testing.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/Broadband/BroadbandData.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/Broadband/BroadbandDataSource.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/Broadband/RealBBSource.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/Broadband/StateAndCounty.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/CSV/CSVData$CSVRowCreator.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/CSV/CSVData.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/CSV/Creator.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/CSV/CreatorFromRow.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/CSV/Parser.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/CSV/Searcher.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/Exceptions/DatasourceException.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/Exceptions/FactoryFailureException.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/Handlers/BroadbandHandler$FailureResponse.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/Handlers/BroadbandHandler$SuccessResponse.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/Handlers/BroadbandHandler.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/Handlers/LoadHandler$FailureResponse.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/Handlers/LoadHandler$SuccessResponse.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/Handlers/LoadHandler.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/Handlers/SearchHandler$FailureResponse.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/Handlers/SearchHandler$SuccessResponse.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/Handlers/SearchHandler.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/Handlers/ViewHandler$FailureResponse.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/Handlers/ViewHandler$SuccessResponse.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/Handlers/ViewHandler.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/Main.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/cpd.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/jacoco.exec" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/javadoc-bundle-options/javadoc-options-javadoc-resources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/pmd.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/pmd/rulesets/maven-pmd-plugin-default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/s0-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/apidocs/allclasses-index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/apidocs/allpackages-index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/apidocs/edu/brown/cs/student/main/Creator.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/apidocs/edu/brown/cs/student/main/CreatorFromRow.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/apidocs/edu/brown/cs/student/main/FactoryFailureException.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/apidocs/edu/brown/cs/student/main/Main.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/apidocs/edu/brown/cs/student/main/Parser.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/apidocs/edu/brown/cs/student/main/Searcher.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/apidocs/edu/brown/cs/student/main/class-use/Creator.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/apidocs/edu/brown/cs/student/main/class-use/CreatorFromRow.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/apidocs/edu/brown/cs/student/main/class-use/FactoryFailureException.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/apidocs/edu/brown/cs/student/main/class-use/Main.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/apidocs/edu/brown/cs/student/main/class-use/Parser.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/apidocs/edu/brown/cs/student/main/class-use/Searcher.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/apidocs/edu/brown/cs/student/main/package-summary.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/apidocs/edu/brown/cs/student/main/package-tree.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/apidocs/edu/brown/cs/student/main/package-use.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/apidocs/element-list" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/apidocs/help-doc.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/apidocs/index-all.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/apidocs/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/apidocs/jquery-ui.overrides.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/apidocs/legal/ADDITIONAL_LICENSE_INFO" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/apidocs/legal/ASSEMBLY_EXCEPTION" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/apidocs/legal/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/apidocs/legal/jquery.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/apidocs/legal/jqueryUI.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/apidocs/member-search-index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/apidocs/module-search-index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/apidocs/overview-tree.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/apidocs/package-search-index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/apidocs/resources/glass.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/apidocs/resources/x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/apidocs/script-dir/jquery-3.6.1.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/apidocs/script-dir/jquery-ui.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/apidocs/script-dir/jquery-ui.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/apidocs/script.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/apidocs/search.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/apidocs/serialized-form.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/apidocs/stylesheet.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/apidocs/tag-search-index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/apidocs/type-search-index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/cpd.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/css/maven-base.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/css/maven-theme.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/css/print.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/css/site.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/dependencies.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/dependency-info.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/distribution-management.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/images/close.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/images/collapsed.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/images/expanded.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/images/external.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/images/icon_error_sml.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/images/icon_info_sml.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/images/icon_success_sml.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/images/icon_warning_sml.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/images/logos/build-by-maven-black.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/images/logos/build-by-maven-white.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/images/logos/maven-feather.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/images/newwindow.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/integration.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/issue-tracking.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/jacoco/edu.brown.cs.student.main.Broadband/BroadbandData.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/jacoco/edu.brown.cs.student.main.Broadband/BroadbandData.java.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/jacoco/edu.brown.cs.student.main.Broadband/RealBBSource.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/jacoco/edu.brown.cs.student.main.Broadband/RealBBSource.java.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/jacoco/edu.brown.cs.student.main.Broadband/StateAndCounty.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/jacoco/edu.brown.cs.student.main.Broadband/StateAndCounty.java.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/jacoco/edu.brown.cs.student.main.Broadband/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/jacoco/edu.brown.cs.student.main.Broadband/index.source.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/jacoco/edu.brown.cs.student.main.CSV/CSVData$CSVRowCreator.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/jacoco/edu.brown.cs.student.main.CSV/CSVData.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/jacoco/edu.brown.cs.student.main.CSV/CSVData.java.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/jacoco/edu.brown.cs.student.main.CSV/Creator.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/jacoco/edu.brown.cs.student.main.CSV/Creator.java.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/jacoco/edu.brown.cs.student.main.CSV/Parser.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/jacoco/edu.brown.cs.student.main.CSV/Parser.java.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/jacoco/edu.brown.cs.student.main.CSV/Searcher.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/jacoco/edu.brown.cs.student.main.CSV/Searcher.java.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/jacoco/edu.brown.cs.student.main.CSV/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/jacoco/edu.brown.cs.student.main.CSV/index.source.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/jacoco/edu.brown.cs.student.main.Exceptions/DatasourceException.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/jacoco/edu.brown.cs.student.main.Exceptions/DatasourceException.java.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/jacoco/edu.brown.cs.student.main.Exceptions/FactoryFailureException.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/jacoco/edu.brown.cs.student.main.Exceptions/FactoryFailureException.java.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/jacoco/edu.brown.cs.student.main.Exceptions/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/jacoco/edu.brown.cs.student.main.Exceptions/index.source.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/jacoco/edu.brown.cs.student.main.Handlers/BroadbandHandler$FailureResponse.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/jacoco/edu.brown.cs.student.main.Handlers/BroadbandHandler$SuccessResponse.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/jacoco/edu.brown.cs.student.main.Handlers/BroadbandHandler.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/jacoco/edu.brown.cs.student.main.Handlers/BroadbandHandler.java.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/jacoco/edu.brown.cs.student.main.Handlers/LoadHandler$FailureResponse.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/jacoco/edu.brown.cs.student.main.Handlers/LoadHandler$SuccessResponse.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/jacoco/edu.brown.cs.student.main.Handlers/LoadHandler.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/jacoco/edu.brown.cs.student.main.Handlers/LoadHandler.java.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/jacoco/edu.brown.cs.student.main.Handlers/SearchHandler$FailureResponse.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/jacoco/edu.brown.cs.student.main.Handlers/SearchHandler$SuccessResponse.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/jacoco/edu.brown.cs.student.main.Handlers/SearchHandler.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/jacoco/edu.brown.cs.student.main.Handlers/SearchHandler.java.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/jacoco/edu.brown.cs.student.main.Handlers/ViewHandler$FailureResponse.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/jacoco/edu.brown.cs.student.main.Handlers/ViewHandler$SuccessResponse.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/jacoco/edu.brown.cs.student.main.Handlers/ViewHandler.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/jacoco/edu.brown.cs.student.main.Handlers/ViewHandler.java.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/jacoco/edu.brown.cs.student.main.Handlers/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/jacoco/edu.brown.cs.student.main.Handlers/index.source.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/jacoco/edu.brown.cs.student.main/Creator.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/jacoco/edu.brown.cs.student.main/Creator.java.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/jacoco/edu.brown.cs.student.main/FactoryFailureException.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/jacoco/edu.brown.cs.student.main/FactoryFailureException.java.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/jacoco/edu.brown.cs.student.main/Main.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/jacoco/edu.brown.cs.student.main/Main.java.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/jacoco/edu.brown.cs.student.main/Parser.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/jacoco/edu.brown.cs.student.main/Parser.java.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/jacoco/edu.brown.cs.student.main/Searcher.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/jacoco/edu.brown.cs.student.main/Searcher.java.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/jacoco/edu.brown.cs.student.main/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/jacoco/edu.brown.cs.student.main/index.source.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/jacoco/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/branchfc.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/branchnc.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/branchpc.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/bundle.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/class.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/down.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/greenbar.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/group.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/method.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/package.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/prettify.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/prettify.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/redbar.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/report.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/report.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/session.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/sort.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/sort.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/source.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/up.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/jacoco/jacoco-sessions.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/jacoco/jacoco.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/jacoco/jacoco.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/license.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/mail-lists.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/plugin-management.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/plugins.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/pmd.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/project-info.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/project-reports.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/project-summary.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/source-repository.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/surefire-report.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/team-list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/xref-test/allclasses-frame.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/xref-test/edu/brown/cs/student/Testing.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/xref-test/edu/brown/cs/student/package-frame.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/xref-test/edu/brown/cs/student/package-summary.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/xref-test/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/xref-test/overview-frame.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/xref-test/overview-summary.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/xref-test/stylesheet.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/xref/allclasses-frame.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/xref/edu/brown/cs/student/main/Creator.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/xref/edu/brown/cs/student/main/CreatorFromRow.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/xref/edu/brown/cs/student/main/FactoryFailureException.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/xref/edu/brown/cs/student/main/Main.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/xref/edu/brown/cs/student/main/Parser.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/xref/edu/brown/cs/student/main/Searcher.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/xref/edu/brown/cs/student/main/package-frame.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/xref/edu/brown/cs/student/main/package-summary.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/xref/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/xref/overview-frame.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/xref/overview-summary.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/site/xref/stylesheet.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-edu.brown.cs.student.Testing.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/surefire-reports/edu.brown.cs.student.Testing.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/test-classes/edu/brown/cs/student/MockedBBSource.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/test-classes/edu/brown/cs/student/Testing.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../back-end/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../back-end/.idea/checkstyle-idea.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/checkstyle-idea.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../back-end/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../back-end/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../back-end/.idea/libraries/junit_jupiter.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../back-end/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../back-end/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../back-end/.idea/runConfigurations/Server.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../back-end/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../back-end/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../back-end/data/data1.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../back-end/data/data2.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../back-end/data/geodata/fullDownload.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../back-end/data/ten-star.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/brown/cs/student/main/Data/stars/ten-star.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../back-end/data/test_stardata1.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../back-end/data/test_stardata2.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../back-end/moshi.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../back-end/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../back-end/src/back-end.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../back-end/src/main/java/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../back-end/src/main/java/TestAPIHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../back-end/src/main/java/TestCSVHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../back-end/src/main/java/TestCSVProcessing.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../back-end/src/main/java/TestCensusDatasource.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../back-end/src/main/java/csv/CSVParser.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../back-end/src/main/java/csv/CSVSearch.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../back-end/src/main/java/csv/CreatorFromRow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/brown/cs/student/main/CSV/CreatorFromRow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../back-end/src/main/java/csv/RowCreator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../back-end/src/main/java/datasource/APICensusDatasource.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../back-end/src/main/java/datasource/CensusDatasource.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../back-end/src/main/java/datasource/MockCensusDatasource.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../back-end/src/main/java/exception/DatasourceException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../back-end/src/main/java/exception/ParserException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../back-end/src/main/java/exception/SearchException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../back-end/src/main/java/handler/BroadbandHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../back-end/src/main/java/handler/GeoJSONHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../back-end/src/main/java/handler/LoadHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../back-end/src/main/java/handler/SearchHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../back-end/src/main/java/handler/ViewHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../back-end/src/main/java/server/Server.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/edu/brown/cs/student/MockedBBSource.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/edu/brown/cs/student/MockedBBSource.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/edu/brown/cs/student/Testing.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/edu/brown/cs/student/Testing.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front-end/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/../front-end/src/App.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -327,24 +38,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/channingbryant/Desktop/cs320/maps-cpbryant-ssdhulip/backend/pom.xml",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/channingbryant/Desktop/cs320/maps-cpbryant-ssdhulip/backend/pom.xml&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/java/edu/brown/cs/student/main" />
@@ -389,6 +100,7 @@
       <workItem from="1698700476719" duration="1811000" />
       <workItem from="1698725122713" duration="599000" />
       <workItem from="1699404980693" duration="1222000" />
+      <workItem from="1699408126658" duration="9126000" />
     </task>
     <servers />
   </component>
