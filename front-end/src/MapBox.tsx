@@ -36,7 +36,7 @@ function MapBox() {
       {...viewState}
       onMove={(ev) => setViewState(ev.viewState)}
       style={{ width: window.innerWidth, height: window.innerHeight }}
-      mapStyle={"mapbox://styles/mapbox/streets-v12"}
+      mapStyle={"mapbox://styles/mapbox/dark-v10"}
       onClick={(ev: MapLayerMouseEvent) => onMapClick(ev)}
     >
       <Source id="geo_data" type="geojson" data={overlay}>
