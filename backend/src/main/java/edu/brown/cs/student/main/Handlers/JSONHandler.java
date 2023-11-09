@@ -1,5 +1,6 @@
 package edu.brown.cs.student.main.Handlers;
 
+import com.google.common.cache.Cache;
 import com.squareup.moshi.JsonReader;
 import edu.brown.cs.student.main.Server.GeoJsonCollection;
 import edu.brown.cs.student.main.Server.GeoJsonCollection.Feature;
@@ -18,7 +19,10 @@ import spark.Response;
 import spark.Route;
 
 public class JSONHandler implements Route {
-  public JSONHandler(){
+
+  private CacheProxy cache;
+  public JSONHandler(CacheProxy cache){
+    this.cache = cache;
   }
   @Override
   public Object handle(Request request, Response response) throws Exception {
@@ -45,7 +49,16 @@ public class JSONHandler implements Route {
 
   }
 
-  public static List<Feature> filterFeatureByBoundingBox(GeoJsonCollection geoJsonCollection, Double minLat, Double maxLat, Double minLong, Double maxLong){
+  public List<Feature> filterFeatureByBoundingBox(GeoJsonCollection geoJsonCollection,
+      Double minLat, Double maxLat, Double minLong, Double maxLong){
+    List<Double> point = new ArrayList<>();
+    point.add(minLat);
+    point.add(maxLat);
+    point.add(minLong);
+    point.add(maxLong);
+    if(this.cache.isInCache(point)) {
+      return (List<Feature>) this.cache.getValueFromCache(point);
+    }
     List<Feature> filteredFeatures = null;
     try {
       filteredFeatures = new ArrayList<>(geoJsonCollection.features);
@@ -74,6 +87,7 @@ public class JSONHandler implements Route {
       System.out.println(e);
     }
 //    System.out.println(filteredFeatures);
+    this.cache.addValueToCache(point, filteredFeatures);
     return filteredFeatures;
   }
 

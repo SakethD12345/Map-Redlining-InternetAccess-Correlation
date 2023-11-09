@@ -6,6 +6,7 @@ import edu.brown.cs.student.main.Broadband.RealBBSource;
 import edu.brown.cs.student.main.CSV.CSVData;
 import edu.brown.cs.student.main.Exceptions.FactoryFailureException;
 import edu.brown.cs.student.main.Handlers.BroadbandHandler;
+import edu.brown.cs.student.main.Handlers.CacheProxy;
 import edu.brown.cs.student.main.Handlers.JSONHandler;
 import edu.brown.cs.student.main.Handlers.LoadHandler;
 import edu.brown.cs.student.main.Handlers.MapsHandler;
@@ -40,7 +41,7 @@ public class Main {
     Spark.get("searchCSV", new SearchHandler(data));
     Spark.get("broadband", new BroadbandHandler(new RealBBSource()));
     Spark.get("areaSearch", new MapsHandler());
-    Spark.get("geoJSON", new JSONHandler());
+    Spark.get("geoJSON", new JSONHandler(new CacheProxy(10,10)));
     // have to go to endpoint mock for the website to not have 404 error
 
     Spark.init();
