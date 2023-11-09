@@ -41,16 +41,16 @@ public class MapsHandler implements Route {
       JsonAdapter<Map<String, Object>> adapter = moshi.adapter(mapStringObject);
 
       JsonReader reader = JsonReader.of(new Buffer().writeUtf8(Files.readString(Path.of(
-            "/Users/channingbryant/Desktop/cs320/maps-gearup/src/geoData/fullDownload.json"))));
-        GeoJsonCollection geoFeature = JsonParsing.fromJsonGeneral(reader, GeoJsonCollection.class);
-        if (area.isEmpty()) {
-          return JsonParsing.toJsonGeneral(geoFeature);
-        }
-        Map<String,Object> responseMap = new HashMap<>();
-        responseMap.put("type", "success");
-        geoFeature.features = filterFeatureByArea(geoFeature, area);
-        responseMap.put("data", JsonParsing.toJsonGeneral(geoFeature));
-        return adapter.toJson(responseMap);
+          "src/main/java/edu/brown/cs/student/main/geodata/fullDownload.json"))));
+      GeoJsonCollection geoFeature = JsonParsing.fromJsonGeneral(reader, GeoJsonCollection.class);
+      if (area.isEmpty()) {
+        return JsonParsing.toJsonGeneral(geoFeature);
+      }
+      Map<String,Object> responseMap = new HashMap<>();
+      responseMap.put("type", "success");
+      geoFeature.features = filterFeatureByArea(geoFeature, area);
+      responseMap.put("data", JsonParsing.toJsonGeneral(geoFeature));
+      return adapter.toJson(responseMap);
 
     } catch(Exception e) {
       return e;
