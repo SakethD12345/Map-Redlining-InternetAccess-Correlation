@@ -1,37 +1,57 @@
 package edu.brown.cs.student.main.Handlers;
 
+import com.squareup.moshi.JsonAdapter;
 import com.squareup.moshi.JsonReader;
+import com.squareup.moshi.Moshi;
+import com.squareup.moshi.Types;
 import edu.brown.cs.student.main.Server.GeoJsonCollection;
 import edu.brown.cs.student.main.Server.GeoJsonCollection.Feature;
 import edu.brown.cs.student.main.Server.GeoJsonCollection.Properties;
 import edu.brown.cs.student.main.Server.JsonParsing;
+import java.lang.reflect.Type;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import okio.Buffer;
 import spark.Request;
 import spark.Response;
 import spark.Route;
 
 public class MapsHandler implements Route {
+
+  private ArrayList<String> searchHistory;
+
+  private GeoJsonCollection data;
   public MapsHandler(){
+    this.searchHistory = new ArrayList<>();
+
   }
   @Override
   public Object handle(Request request, Response response) throws Exception {
     try {
       String area = request.queryParams("area");
-      JsonReader reader = JsonReader.of(new Buffer().writeUtf8(Files.readString(Path.of(
-          "backend/src/main/java/edu/brown/cs/student/main/geodata/fullDownload.json"))));
-      GeoJsonCollection geoFeature = JsonParsing.fromJsonGeneral(reader, GeoJsonCollection.class);
+      searchHistory.add(area);
+      Moshi moshi = new Moshi.Builder().build();
+      Type mapStringObject = Types.newParameterizedType(Map.class, String.class, Object.class);
+      JsonAdapter<Map<String, Object>> adapter = moshi.adapter(mapStringObject);
 
+      JsonReader reader = JsonReader.of(new Buffer().writeUtf8(Files.readString(Path.of(
+          "src/main/java/edu/brown/cs/student/main/geodata/fullDownload.json"))));
+      GeoJsonCollection geoFeature = JsonParsing.fromJsonGeneral(reader, GeoJsonCollection.class);
       if (area.isEmpty()) {
         return JsonParsing.toJsonGeneral(geoFeature);
       }
+      Map<String,Object> responseMap = new HashMap<>();
+      responseMap.put("type", "success");
       geoFeature.features = filterFeatureByArea(geoFeature, area);
-      return JsonParsing.toJsonGeneral(geoFeature);
+      responseMap.put("data", JsonParsing.toJsonGeneral(geoFeature));
+      return adapter.toJson(responseMap);
+
     } catch(Exception e) {
       return e;
     }

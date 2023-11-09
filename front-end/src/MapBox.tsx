@@ -1,5 +1,5 @@
 import Map, { Layer, MapLayerMouseEvent, Source } from "react-map-gl";
-import { geoLayer, overlayData } from "./overlays";
+import { geoLayer, geoLayerLine, overlayData } from "./overlays";
 import React, { useEffect, useState } from "react";
 import { ACCESS_TOKEN } from "./private/api";
 
@@ -27,9 +27,19 @@ function MapBox() {
     undefined
   );
 
+  const [searchOverlay, setSearchOverlay] = useState<
+    GeoJSON.FeatureCollection | undefined
+  >(undefined);
+
   useEffect(() => {
     setOverlay(overlayData());
   }, []);
+
+  // useEffect(() => {
+  //   overlayData().then((r) => {
+  //     setOverlay(r);
+  //   });
+  // }, []);
   return (
     <Map
       mapboxAccessToken={ACCESS_TOKEN}
@@ -41,6 +51,9 @@ function MapBox() {
     >
       <Source id="geo_data" type="geojson" data={overlay}>
         <Layer {...geoLayer} />
+      </Source>
+      <Source id="geo_data2" type="geojson" data={searchOverlay}>
+        <Layer {...geoLayerLine} />
       </Source>
     </Map>
   );

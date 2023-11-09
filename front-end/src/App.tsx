@@ -9,9 +9,9 @@ function App() {
   >(undefined);
 
   const handleSetSearchOverlay = (
-    data: GeoJSON.FeatureCollection | undefined
+    features: GeoJSON.FeatureCollection | undefined
   ) => {
-    setSearchOverlay(data);
+    setSearchOverlay(features);
   };
 
   return (
