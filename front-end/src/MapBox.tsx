@@ -1,5 +1,5 @@
 import Map, { Layer, MapLayerMouseEvent, Source } from "react-map-gl";
-import { geoLayer, geoLayerLine, overlayData } from "./overlays";
+import {geoLayer, geoLayerLine, isFeatureCollection, overlayData} from "./overlays";
 import React, { useEffect, useState } from "react";
 import { ACCESS_TOKEN } from "./private/api";
 
@@ -31,8 +31,15 @@ function MapBox() {
     GeoJSON.FeatureCollection | undefined
   >(undefined);
 
+  // useEffect(() => {
+  //   setOverlay(overlayData());
+  // }, []);
+
   useEffect(() => {
-    setOverlay(overlayData());
+    fetch("http://localhost:2025/geoJSON?minLat=&maxLat=&minLong=&maxLong=")
+    .then((r) => r.json()
+    .then((r) => isFeatureCollection(r) ? r : undefined)
+    .then((r) => setOverlay(r)));
   }, []);
 
   // useEffect(() => {
