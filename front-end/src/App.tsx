@@ -1,6 +1,6 @@
 import "./App.css";
 import MapBox from "./MapBox";
-import InputBox from "./components/SearhKeyword";
+import InputBox from "./components/SearchKeyword";
 import { useState } from "react";
 
 function App() {
