@@ -8,11 +8,18 @@ import {
   ServerErrorResponse,
 } from "./utils/types";
 
+import { SERVER_URL } from "./utils/url";
+
 // Import the raw JSON file
 import rl_data from "./geodata/fullDownload.json";
 // you may need to rename the donwloaded .geojson to .json
 
 export function isFeatureCollection(json: any): json is FeatureCollection {
+  if (json === undefined) {
+    return false;
+  }
+  // console.log(json.type);
+  // console.log(json.features);
   return json.type === "FeatureCollection";
 }
 

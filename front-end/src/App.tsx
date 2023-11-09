@@ -1,6 +1,6 @@
 import "./App.css";
 import MapBox from "./MapBox";
-import InputBox from "./components/SearhKeyword";
+import InputBox from "./components/SearchKeyword";
 import { useState } from "react";
 
 function App() {
@@ -9,9 +9,9 @@ function App() {
   >(undefined);
 
   const handleSetSearchOverlay = (
-    data: GeoJSON.FeatureCollection | undefined
+    features: GeoJSON.FeatureCollection | undefined
   ) => {
-    setSearchOverlay(data);
+    setSearchOverlay(features);
   };
 
   return (

@@ -42,7 +42,7 @@ export default function InputBox({ setState }: InputBoxProps) {
 
     setErrorText("");
 
-    let url = `${SERVER_URL}/areaSaearch?area=${userInput}`;
+    let url = `${SERVER_URL}/areaSearch?area=${userInput}`;
 
     const data = await Promise.resolve(fetchData(url));
 
