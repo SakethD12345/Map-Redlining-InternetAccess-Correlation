@@ -24,7 +24,7 @@ public class MapsHandler implements Route {
     try {
       String area = request.queryParams("area");
       JsonReader reader = JsonReader.of(new Buffer().writeUtf8(Files.readString(Path.of(
-          "/Users/channingbryant/Desktop/cs320/maps-gearup/src/geoData/fullDownload.json"))));
+          "backend/src/main/java/edu/brown/cs/student/main/geodata/fullDownload.json"))));
       GeoJsonCollection geoFeature = JsonParsing.fromJsonGeneral(reader, GeoJsonCollection.class);
 
       if (area.isEmpty()) {
