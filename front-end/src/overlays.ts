@@ -23,10 +23,6 @@ export function isFeatureCollection(json: any): json is FeatureCollection {
   return json.type === "FeatureCollection";
 }
 
-// export function overlayData(): GeoJSON.FeatureCollection | undefined {
-//   return isFeatureCollection(rl_data) ? rl_data : undefined;
-// }
-
 export const fetchData = async (url: string) => {
   try {
     const response = await fetch(url);

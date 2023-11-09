@@ -1,5 +1,5 @@
 import Map, { Layer, MapLayerMouseEvent, Source } from "react-map-gl";
-import {geoLayer, geoLayerLine, isFeatureCollection, overlayData} from "./overlays";
+import {geoLayer, geoLayerLine, isFeatureCollection} from "./overlays";
 import React, { useEffect, useState } from "react";
 import { ACCESS_TOKEN } from "./private/api";
 
