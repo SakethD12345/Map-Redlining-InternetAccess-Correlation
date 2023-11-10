@@ -39,7 +39,6 @@ export default function InputBox({ setState }: InputBoxProps) {
     e.preventDefault();
 
     let userInput = formState.keyword.trim().replace(" ", "+");
-
     setErrorText("");
 
     let url = `${SERVER_URL}/areaSearch?area=${userInput}`;

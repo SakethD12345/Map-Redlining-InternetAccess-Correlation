@@ -5,10 +5,60 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f91046b6-4395-48f3-a8e1-fa847fb4a5d2" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/edu/brown/cs/student/MapsFuzzTesting.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/edu/brown/cs/student/MapsJSONTesting.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/edu/brown/cs/student/MapsSearchTesting.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/brown/cs/student/main/Handlers/JSONHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/brown/cs/student/main/Handlers/JSONHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/brown/cs/student/main/Handlers/MapsHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/brown/cs/student/main/Handlers/MapsHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/brown/cs/student/main/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/brown/cs/student/main/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/edu/brown/cs/student/Testing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/brown/cs/student/CSVTesting.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/Broadband/BroadbandData.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/Broadband/BroadbandData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/Broadband/RealBBSource.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/Broadband/RealBBSource.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/Broadband/StateAndCounty.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/Broadband/StateAndCounty.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/CSV/CSVData$CSVRowCreator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/CSV/CSVData$CSVRowCreator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/CSV/CSVData.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/CSV/CSVData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/CSV/Creator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/CSV/Creator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/CSV/CreatorFromRow.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/CSV/CreatorFromRow.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/CSV/Parser.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/CSV/Parser.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/CSV/Searcher.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/CSV/Searcher.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/Data/census/dol_ri_earnings_disparity.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/Data/census/income_by_race_edited.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/Data/census/integercol.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/Data/census/no header.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/Data/census/postsecondary_education.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/Data/stars/empty.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/Data/stars/stardata.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/Data/stars/ten-star.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/Exceptions/DatasourceException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/Exceptions/DatasourceException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/Exceptions/FactoryFailureException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/Exceptions/FactoryFailureException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/Handlers/BroadbandHandler$FailureResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/Handlers/BroadbandHandler$FailureResponse.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/Handlers/BroadbandHandler$SuccessResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/Handlers/BroadbandHandler$SuccessResponse.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/Handlers/BroadbandHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/Handlers/BroadbandHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/Handlers/CacheProxy.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/Handlers/CacheProxy.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/Handlers/JSONHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/Handlers/JSONHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/Handlers/LoadHandler$FailureResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/Handlers/LoadHandler$FailureResponse.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/Handlers/LoadHandler$SuccessResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/Handlers/LoadHandler$SuccessResponse.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/Handlers/LoadHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/Handlers/LoadHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/Handlers/MapsHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/Handlers/MapsHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/Handlers/SearchHandler$FailureResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/Handlers/SearchHandler$FailureResponse.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/Handlers/SearchHandler$SuccessResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/Handlers/SearchHandler$SuccessResponse.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/Handlers/SearchHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/Handlers/SearchHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/Handlers/ViewHandler$FailureResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/Handlers/ViewHandler$FailureResponse.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/Handlers/ViewHandler$SuccessResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/Handlers/ViewHandler$SuccessResponse.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/Handlers/ViewHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/Handlers/ViewHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/Server/GeoJsonCollection$Feature.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/Server/GeoJsonCollection$Feature.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/Server/GeoJsonCollection$Geometry.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/Server/GeoJsonCollection$Geometry.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/Server/GeoJsonCollection$Properties.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/Server/GeoJsonCollection$Properties.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/Server/GeoJsonCollection.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/Server/GeoJsonCollection.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/Server/JsonParsing.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/Server/JsonParsing.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/geodata/fullDownload.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/edu/brown/cs/student/MockedBBSource.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/edu/brown/cs/student/MockedBBSource.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/edu/brown/cs/student/Testing.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front-end/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/../front-end/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front-end/src/components/BroadbandBox.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../front-end/src/components/BroadbandBox.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front-end/src/components/SearchKeyword.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../front-end/src/components/SearchKeyword.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,8 +68,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Record" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -39,30 +89,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/channingbryant/Desktop/cs320/maps-cpbryant-ssdhulip/backend/pom.xml&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/Users/channingbryant/Desktop/cs320/maps-cpbryant-ssdhulip/backend/pom.xml",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/java/edu/brown/cs/student/main" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.MapsJSONTesting.testInvalidLatMin">
     <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="edu.brown.cs.student.main.Main" />
       <module name="s0" />
@@ -76,6 +127,95 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="MapsJSONTesting.oneOrMoreEmptyLatLong" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="s0" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="edu.brown.cs.student.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="edu.brown.cs.student" />
+      <option name="MAIN_CLASS_NAME" value="edu.brown.cs.student.MapsJSONTesting" />
+      <option name="METHOD_NAME" value="oneOrMoreEmptyLatLong" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MapsJSONTesting.randomWorkingTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="s0" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="edu.brown.cs.student.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="edu.brown.cs.student" />
+      <option name="MAIN_CLASS_NAME" value="edu.brown.cs.student.MapsJSONTesting" />
+      <option name="METHOD_NAME" value="randomWorkingTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MapsJSONTesting.testEmptyLatLongBounds" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="s0" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="edu.brown.cs.student.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="edu.brown.cs.student" />
+      <option name="MAIN_CLASS_NAME" value="edu.brown.cs.student.MapsJSONTesting" />
+      <option name="METHOD_NAME" value="testEmptyLatLongBounds" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MapsJSONTesting.testInvalidLatMin" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="s0" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="edu.brown.cs.student.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="edu.brown.cs.student" />
+      <option name="MAIN_CLASS_NAME" value="edu.brown.cs.student.MapsJSONTesting" />
+      <option name="METHOD_NAME" value="testInvalidLatMin" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MapsJSONTesting.testNoLatLongParameters" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="s0" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="edu.brown.cs.student.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="edu.brown.cs.student" />
+      <option name="MAIN_CLASS_NAME" value="edu.brown.cs.student.MapsJSONTesting" />
+      <option name="METHOD_NAME" value="testNoLatLongParameters" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.MapsJSONTesting.testInvalidLatMin" />
+        <item itemvalue="JUnit.MapsJSONTesting.randomWorkingTest" />
+        <item itemvalue="JUnit.MapsJSONTesting.oneOrMoreEmptyLatLong" />
+        <item itemvalue="JUnit.MapsJSONTesting.testEmptyLatLongBounds" />
+        <item itemvalue="JUnit.MapsJSONTesting.testNoLatLongParameters" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -102,7 +242,7 @@
       <workItem from="1698725122713" duration="599000" />
       <workItem from="1699404980693" duration="1222000" />
       <workItem from="1699408126658" duration="17537000" />
-      <workItem from="1699556484505" duration="4647000" />
+      <workItem from="1699556484505" duration="17711000" />
     </task>
     <servers />
   </component>
