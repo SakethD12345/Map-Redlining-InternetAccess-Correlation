@@ -43,7 +43,16 @@ public class MapsHandler implements Route {
           "backend/src/main/java/edu/brown/cs/student/main/geodata/fullDownload.json"))));
       GeoJsonCollection geoFeature = JsonParsing.fromJsonGeneral(reader, GeoJsonCollection.class);
       if (area.isEmpty()) {
-        return JsonParsing.toJsonGeneral(geoFeature);
+        Map<String, Object> responseMap = new HashMap<>();
+        responseMap.put("data", JsonParsing.toJsonGeneral(geoFeature));
+        return adapter.toJson(responseMap);
+      }
+      if (!JsonParsing.toJsonGeneral(geoFeature).contains(area)){
+        Map<String, Object> responseMap = new HashMap<>();
+        responseMap.put("result", "failure");
+        responseMap.put("error_type", "incorrect query format");
+        responseMap.put("error_description", "area not in dataset that was loaded");
+        return adapter.toJson(responseMap);
       }
       Map<String,Object> responseMap = new HashMap<>();
       responseMap.put("type", "success");
@@ -52,9 +61,15 @@ public class MapsHandler implements Route {
       System.out.println(searchHistory);
       return adapter.toJson(responseMap);
     } catch(Exception e) {
-      return e;
+      Moshi moshi = new Moshi.Builder().build();
+      Type mapStringObject = Types.newParameterizedType(Map.class, String.class, Object.class);
+      JsonAdapter<Map<String, Object>> adapter = moshi.adapter(mapStringObject);
+      Map<String, Object> responseMap = new HashMap<>();
+      responseMap.put("result", "failure");
+      responseMap.put("error_type", "incorrect query format");
+      responseMap.put("error_description", "Search query must be formatted as 'areaSearch?area=[area you are searching for]'");
+      return adapter.toJson(responseMap);
     }
-
   }
 
   public static List<Feature> filterFeatureByArea(GeoJsonCollection geoJsonCollection, String area){
