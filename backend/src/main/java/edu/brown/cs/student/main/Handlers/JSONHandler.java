@@ -1,18 +1,15 @@
 package edu.brown.cs.student.main.Handlers;
 
-import com.google.common.cache.Cache;
 import com.squareup.moshi.JsonReader;
 import edu.brown.cs.student.main.Server.GeoJsonCollection;
 import edu.brown.cs.student.main.Server.GeoJsonCollection.Feature;
 import edu.brown.cs.student.main.Server.GeoJsonCollection.Geometry;
-import edu.brown.cs.student.main.Server.GeoJsonCollection.Properties;
 import edu.brown.cs.student.main.Server.JsonParsing;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 import okio.Buffer;
 import spark.Request;
 import spark.Response;
