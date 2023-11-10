@@ -1,5 +1,5 @@
 interface StatusInfo {
-  broadband: string;
+  broadband: string | undefined;
 }
 
 export default function BroadBandBox({ broadband }: StatusInfo) {
@@ -7,7 +7,7 @@ export default function BroadBandBox({ broadband }: StatusInfo) {
     <div className="status-form">
       {
         <div>
-          <div>BroadBand = {broadband}</div>
+          <div> {broadband}</div>
         </div>
       }
     </div>

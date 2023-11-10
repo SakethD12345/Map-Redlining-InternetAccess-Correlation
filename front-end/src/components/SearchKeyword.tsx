@@ -1,6 +1,6 @@
 import {
-  ChangeEventHandler,
-  FormEventHandler,
+  ChangeEventHandler, Dispatch,
+  FormEventHandler, SetStateAction,
   useEffect,
   useRef,
   useState,
@@ -12,10 +12,12 @@ import { isServerErrorResponse } from "../utils/types";
 
 interface InputBoxProps {
   setState: (data: GeoJSON.FeatureCollection | undefined) => void;
+  broadbandPercentage: string | undefined;
+  setBroadbandPercentage: Dispatch<SetStateAction<string | undefined>>;
 }
 
 // Function to render a form that contains an input box and a submit button
-export default function InputBox({ setState }: InputBoxProps) {
+export default function InputBox( props : InputBoxProps) {
   const [formState, setFormState] = useState({
     keyword: "",
   });
@@ -38,16 +40,58 @@ export default function InputBox({ setState }: InputBoxProps) {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    let userInput = formState.keyword.trim().replace(" ", "+");
+    const inputArray = formState.keyword.trim().split(" ");
+    if(inputArray[0] == "broadband") {
+      broadband(inputArray).then((r) => props.setBroadbandPercentage(r))
+    }
+    let userInput = formState.keyword.trim().replace("_", "%20");
 
     setErrorText("");
 
     let url = `${SERVER_URL}/areaSearch?area=${userInput}`;
 
-    const data = await Promise.resolve(fetchData(url));
+    let data: GeoJSON.FeatureCollection = {
+      type: "FeatureCollection",
+      features: []
+    }
+    data.type = "FeatureCollection"
 
-    if (isFeatureCollection(data)) setState(data);
+    search(userInput)
+    .then((r) => isFeatureCollection(r) ? r : undefined)
+    .then((r) => props.setState(r))
+
+    // if (isFeatureCollection(data)) props.setState(data);
   };
+
+  async function search(input: string): Promise<string> {
+    return await fetch("http://localhost:2025/areaSearch?area=" + input)
+    .then((r) => r.json())
+    .then((r) => {
+      {
+        return r
+      }
+    })
+  }
+
+  async function broadband(inputArray: string[]): Promise<string> {
+    var state = inputArray[1].replace("_", "%20")
+    var county = inputArray[2] + "_County"
+    return await fetch(
+        SERVER_URL +
+        "/broadband?State=" +
+        state +
+        "&County=" +
+        county
+    )
+    .then((r) => r.json())
+    .then((response) => {
+      if (!(response["result"] == "success")) {
+        return response["error_type"];
+      } else {
+        return "% Broadband Access: " + response["householdPercentage"];
+      }
+    });
+  }
 
   return (
     <form onSubmit={handleSubmit} role="form" className="keyword-search-form">
