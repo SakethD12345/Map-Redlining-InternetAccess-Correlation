@@ -40,7 +40,7 @@ public class MapsHandler implements Route {
       Type mapStringObject = Types.newParameterizedType(Map.class, String.class, Object.class);
       JsonAdapter<Map<String, Object>> adapter = moshi.adapter(mapStringObject);
       JsonReader reader = JsonReader.of(new Buffer().writeUtf8(Files.readString(Path.of(
-          "src/main/java/edu/brown/cs/student/main/geodata/fullDownload.json"))));
+          "backend/src/main/java/edu/brown/cs/student/main/geodata/fullDownload.json"))));
       GeoJsonCollection geoFeature = JsonParsing.fromJsonGeneral(reader, GeoJsonCollection.class);
       if (area.isEmpty()) {
         return JsonParsing.toJsonGeneral(geoFeature);
