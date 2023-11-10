@@ -11,7 +11,7 @@ Contributors: Daniel Sedarous (dsedarou) <br />
 Estimated time to complete: 30 hours<br />
 https://github.com/cs0320-f23/server-annie-ye4-ShadiSoufan44
 
-## Design Choices:
+## Design Choices
 This project contains 10 classes, 2 interfaces, 2 exception classes, and 2 records.
 - The Main class serves as the entry point for a Spark web application. It initializes the
   application by setting up a Spark server to listen on port 2023. The class defines route handlers

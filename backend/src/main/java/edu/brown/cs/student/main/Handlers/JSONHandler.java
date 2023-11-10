@@ -32,7 +32,7 @@ public class JSONHandler implements Route {
       String minLongitude = request.queryParams("minLong");
       String maxLongitude = request.queryParams("maxLong");
       JsonReader reader = JsonReader.of(new Buffer().writeUtf8(Files.readString(Path.of(
-          "backend/src/main/java/edu/brown/cs/student/main/geodata/fullDownload.json"))));
+          "src/main/java/edu/brown/cs/student/main/geodata/fullDownload.json"))));
       GeoJsonCollection geoFeature = JsonParsing.fromJsonGeneral(reader, GeoJsonCollection.class);
       if (minLatitude.isEmpty() || maxLatitude.isEmpty() || minLongitude.isEmpty() || maxLongitude.isEmpty()) {
         return JsonParsing.toJsonGeneral(geoFeature);
