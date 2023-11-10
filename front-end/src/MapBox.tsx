@@ -1,5 +1,5 @@
 import Map, { Layer, MapLayerMouseEvent, Source } from "react-map-gl";
-import {geoLayer, geoLayerLine, isFeatureCollection} from "./overlays";
+import {geoLayer, geoLayer2, isFeatureCollection} from "./overlays";
 import React, { useEffect, useState } from "react";
 import { ACCESS_TOKEN } from "./private/api";
 
@@ -59,8 +59,8 @@ function MapBox() {
       <Source id="geo_data" type="geojson" data={overlay}>
         <Layer {...geoLayer} />
       </Source>
-      <Source id="geo_data2" type="geojson" data={searchOverlay}>
-        <Layer {...geoLayerLine} />
+      <Source id="area_search" type="geojson" data={searchOverlay}>
+        <Layer {...geoLayer2} />
       </Source>
     </Map>
   );

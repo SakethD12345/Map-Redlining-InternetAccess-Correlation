@@ -64,6 +64,7 @@ public class JSONHandler implements Route {
           return adapter.toJson(responseMap);
         }
 
+        geoFeature.features = filterFeatureByBoundingBox(geoFeature, minLat, maxLat, minLong, maxLong);
         Map<String,Object> responseMap = new HashMap<>();
         responseMap.put("type", "success");
         responseMap.put("data", JsonParsing.toJsonGeneral(geoFeature));

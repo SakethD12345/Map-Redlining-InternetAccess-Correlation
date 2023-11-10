@@ -1,5 +1,5 @@
 node_modules
 src/private
-back-end/target
+backend/target
 front-end/node_modules
 .DS_Store
