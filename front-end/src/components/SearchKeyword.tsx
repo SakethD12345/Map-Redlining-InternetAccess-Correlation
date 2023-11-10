@@ -11,7 +11,8 @@ import { fetchData, isFeatureCollection } from "../overlays";
 import { isServerErrorResponse } from "../utils/types";
 
 interface InputBoxProps {
-  setState: (data: GeoJSON.FeatureCollection | undefined) => void;
+  data: string | undefined
+  setData: Dispatch<SetStateAction<string | undefined>>;
   broadbandPercentage: string | undefined;
   setBroadbandPercentage: Dispatch<SetStateAction<string | undefined>>;
 }
@@ -48,19 +49,10 @@ export default function InputBox( props : InputBoxProps) {
 
     setErrorText("");
 
-    let url = `${SERVER_URL}/areaSearch?area=${userInput}`;
-
-    let data: GeoJSON.FeatureCollection = {
-      type: "FeatureCollection",
-      features: []
-    }
-    data.type = "FeatureCollection"
 
     search(userInput)
     .then((r) => isFeatureCollection(r) ? r : undefined)
-    .then((r) => props.setState(r))
-
-    // if (isFeatureCollection(data)) props.setState(data);
+    .then((r) => props.setData(r))
   };
 
   async function search(input: string): Promise<string> {

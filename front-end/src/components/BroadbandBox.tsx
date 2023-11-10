@@ -1,5 +1,5 @@
 interface StatusInfo {
-  broadband: string;
+  broadband: string | undefined;
 }
 
 export default function BroadBandBox({ broadband }: StatusInfo) {

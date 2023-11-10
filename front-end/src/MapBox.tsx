@@ -1,6 +1,6 @@
 import Map, { Layer, MapLayerMouseEvent, Source } from "react-map-gl";
 import {geoLayer, geoLayer2, isFeatureCollection} from "./overlays";
-import React, { useEffect, useState } from "react";
+import React, {Dispatch, SetStateAction, useEffect, useState} from "react";
 import { ACCESS_TOKEN } from "./private/api";
 
 interface LatLong {
@@ -8,7 +8,12 @@ interface LatLong {
   long: number;
 }
 
-function MapBox() {
+interface MapBoxProps {
+  data: string | undefined
+  setData: Dispatch<SetStateAction<string | undefined>>;
+}
+
+function MapBox(props: MapBoxProps) {
   const ProvidenceLatLong: LatLong = { lat: 41.824, long: -71.4128 };
   const initialZoom = 10;
 
@@ -27,14 +32,6 @@ function MapBox() {
     undefined
   );
 
-  const [searchOverlay, setSearchOverlay] = useState<
-    GeoJSON.FeatureCollection | undefined
-  >(undefined);
-
-  // useEffect(() => {
-  //   setOverlay(overlayData());
-  // }, []);
-
   useEffect(() => {
     fetch("http://localhost:2025/geoJSON?minLat=&maxLat=&minLong=&maxLong=")
     .then((r) => r.json()
@@ -42,11 +39,6 @@ function MapBox() {
     .then((r) => setOverlay(r)));
   }, []);
 
-  // useEffect(() => {
-  //   overlayData().then((r) => {
-  //     setOverlay(r);
-  //   });
-  // }, []);
   return (
     <Map
       mapboxAccessToken={ACCESS_TOKEN}
@@ -59,7 +51,7 @@ function MapBox() {
       <Source id="geo_data" type="geojson" data={overlay}>
         <Layer {...geoLayer} />
       </Source>
-      <Source id="area_search" type="geojson" data={searchOverlay}>
+      <Source id="area_search" type="geojson" data={props.data}>
         <Layer {...geoLayer2} />
       </Source>
     </Map>

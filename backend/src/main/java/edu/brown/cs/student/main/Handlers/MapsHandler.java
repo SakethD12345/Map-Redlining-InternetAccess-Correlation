@@ -36,21 +36,15 @@ public class MapsHandler implements Route {
     try {
       String area = request.queryParams("area");
       searchHistory.add(area);
-      Moshi moshi = new Moshi.Builder().build();
-      Type mapStringObject = Types.newParameterizedType(Map.class, String.class, Object.class);
-      JsonAdapter<Map<String, Object>> adapter = moshi.adapter(mapStringObject);
       JsonReader reader = JsonReader.of(new Buffer().writeUtf8(Files.readString(Path.of(
           "backend/src/main/java/edu/brown/cs/student/main/geodata/fullDownload.json"))));
       GeoJsonCollection geoFeature = JsonParsing.fromJsonGeneral(reader, GeoJsonCollection.class);
       if (area.isEmpty()) {
         return JsonParsing.toJsonGeneral(geoFeature);
       }
-      Map<String,Object> responseMap = new HashMap<>();
-      responseMap.put("type", "success");
       geoFeature.features = filterFeatureByArea(geoFeature, area);
-      responseMap.put("data", JsonParsing.toJsonGeneral(geoFeature));
       System.out.println(searchHistory);
-      return adapter.toJson(responseMap);
+      return JsonParsing.toJsonGeneral(geoFeature);
     } catch(Exception e) {
       return e;
     }
@@ -80,12 +74,8 @@ public class MapsHandler implements Route {
       System.out.println(allData);
       if (!allData.contains(area))
       {iterator.remove();
-        continue;
       }
-//      feature.properties.name = "Highlight";
-//      feature.properties.holc_grade = "H";
     }
-    //System.out.println(filteredFeatures);
     return filteredFeatures;
   }
 }

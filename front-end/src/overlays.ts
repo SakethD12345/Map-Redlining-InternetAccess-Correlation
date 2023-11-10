@@ -78,7 +78,7 @@ export const geoLayer2: FillLayer = {
   id: "area_search",
   type: "fill",
   paint: {
-    "fill-color": "#00008B",
-    "fill-opacity": 1,
+    "fill-color": "#f39539",
+    "fill-opacity": 0.6,
   },
 };

@@ -9,19 +9,14 @@ function App() {
   >(undefined);
 
   const [broadbandPercentage, setBroadbandPercentage] = useState<string | undefined>()
+  const [data, setData] = useState<string | undefined>()
 
-  const broadband = "";
-  const handleSetSearchOverlay = (
-    features: GeoJSON.FeatureCollection | undefined
-  ) => {
-    setSearchOverlay(features);
-  };
 
   return (
     <div className="App">
-      <MapBox />
+      <MapBox data={data} setData={setData}/>
       <div>
-        <InputBox setState={handleSetSearchOverlay}  broadbandPercentage={broadbandPercentage}
+        <InputBox data={data} setData={setData}  broadbandPercentage={broadbandPercentage}
                   setBroadbandPercentage={setBroadbandPercentage}/>
         <BroadBandBox broadband={broadbandPercentage} />
       </div>
