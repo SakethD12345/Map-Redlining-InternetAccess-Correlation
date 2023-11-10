@@ -74,11 +74,11 @@ export const geoLayer: FillLayer = {
   },
 };
 
-export const geoLayerLine: LineLayer = {
-  id: "geo_data2",
-  type: "line",
+export const geoLayer2: FillLayer = {
+  id: "area_search",
+  type: "fill",
   paint: {
-    "line-color": "#d11d1d",
-    "line-width": 1,
+    "fill-color": "#00008B",
+    "fill-opacity": 1,
   },
 };

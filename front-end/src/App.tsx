@@ -3,11 +3,12 @@ import MapBox from "./MapBox";
 import InputBox from "./components/SearchKeyword";
 import { useState } from "react";
 import BroadBandBox from "./components/BroadbandBox";
-
 function App() {
   const [searchOverlay, setSearchOverlay] = useState<
     GeoJSON.FeatureCollection | undefined
   >(undefined);
+
+  const [broadbandPercentage, setBroadbandPercentage] = useState<string | undefined>()
 
   const broadband = "";
   const handleSetSearchOverlay = (
@@ -20,8 +21,9 @@ function App() {
     <div className="App">
       <MapBox />
       <div>
-        <InputBox setState={handleSetSearchOverlay} />
-        <BroadBandBox broadband={broadband} />
+        <InputBox setState={handleSetSearchOverlay}  broadbandPercentage={broadbandPercentage}
+                  setBroadbandPercentage={setBroadbandPercentage}/>
+        <BroadBandBox broadband={broadbandPercentage} />
       </div>
     </div>
   );
