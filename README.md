@@ -25,3 +25,17 @@ There are two types of tests that we have in our program. Integration tests and 
 How to Run the tests you wrote/were provided:
 For backend tests you should type run mvn test in the terminal and For frontend tests, you should type run npm test.
 
+Reflection:
+12 different programming languages, development environments, software packages, hardware, that are maps the product runs on are:
+VSCode
+TypeScript
+NPM
+MapBox-GL
+Maven
+JUnit
+Moshi
+React
+Intellij
+Spark
+Fuzz testing
+Java
