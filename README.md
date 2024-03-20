@@ -1,9 +1,3 @@
-# maps-cpbryant-ssdhulip
-
-Collaboration
-We collaborated with and took inspiration from dsedarous and felia
-
-
 Design Choices:
 To integrate the backend we imported our project from REPL and to integrate the frontend we took the code from the gearup. We used our backend server to actually run the new functions that we added to search a city with longitude and latitude bounds. These functions are modeled by the MapsHandler and JSONHandler classes. We also created a class in the back end that contains several wrapper classes so that we could map the types in the JSON file to certain properties. Along with that, we have a class that handles parsing data to and from a JSON object. The last class that we added in the backend handles the caching of the search results. In the front end, we have what was covered in the gearup as well as several classes: One that handles the overlay of the redlining data from our json as well as the highlighted values when a user searches for a certain location. We also added a class that handles displaying broadband data when it is searched and an input box to allow for search queries.
 
